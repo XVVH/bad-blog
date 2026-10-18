@@ -44,6 +44,7 @@
   <footer class="site-foot">
     <p class="site-foot-name">{{ site.Title }}</p>
     <p class="hits" aria-hidden="true"><span class="hits-count"></span></p>
+    <p class="site-foot-designs"><a class="designs-link" href="{{ "/designs/" | relURL }}">{{ hugo.Data.copy.designs_link }}</a></p>
   </footer>
   <div class="deco" aria-hidden="true">{{ range 8 }}<span></span>{{ end }}</div>
 </div>

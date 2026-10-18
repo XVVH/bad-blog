@@ -1,0 +1,313 @@
+/*
+  Office Suite: desktop publishing by someone who found every button. The
+  post pasted into a slide, in PowerPoint's Normal view, framed in apples.
+  See docs/themes/office-suite.md. Fix bugs here, never taste.
+*/
+@keyframes office-suite-fly {
+  from { transform: translateX(-120%); }
+  to { transform: translateX(0); }
+}
+
+@layer theme {
+  :root[data-theme="office-suite"] {
+    --os-pad: clamp(16px, 4vw, 48px);
+    --os-navy: #00205b;
+    --os-blue: #0b3d91;
+    --os-yellow: #ffd200;
+    --os-ui: Tahoma, Verdana, "Segoe UI", sans-serif;
+    --os-black: "Arial Black", "Arial Bold", Impact, sans-serif;
+    --os-slide: linear-gradient(160deg, #0b3d91 0%, #00205b 55%, #001540 100%);
+
+    color-scheme: light;
+    font: 20px/1.5 Arial, Helvetica, "Liberation Sans", sans-serif;
+    color: #ffffff;
+    background: #6d8fbf;
+
+    body { background: #6d8fbf; }
+
+    a { color: #9fd3ff; text-decoration: underline; }
+    a:visited { color: #d7b4ff; }
+    a:hover { color: var(--os-yellow); }
+
+    /* The toolbar, with a menu that's only decoration. */
+    .bar { background: linear-gradient(#f4f8fe, #c4d8f5); border-bottom: 1px solid #6f8fbf; }
+    .bar-inner::before {
+      content: "File   Edit   View   Insert   Format   Tools   Slide Show   Window   Help" / "";
+      order: 1;
+      flex: 1 1 auto;
+      min-width: 0;
+      overflow: hidden;
+      padding: 0 14px;
+      font: 12px/1 var(--os-ui);
+      white-space: pre;
+      color: #1a1a1a;
+    }
+    .bar-more {
+      padding: 0 10px 0 34px;
+      font: 700 12px/1 var(--os-ui);
+      color: #1a1a1a;
+      background: url("../themes/office-suite/img/arrow.svg") 6px 50% / 24px no-repeat, linear-gradient(#ffffff, #dde8f7);
+      border: 1px solid #7f9db9;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .bar-more:hover { background-color: #ffe9a8; border-color: #c89c00; }
+
+    /* The workspace, framed in Publisher border art. */
+    .page {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0;
+      background: #a0a0a0;
+      border: 16px solid transparent;
+      border-image: url("../themes/office-suite/img/apple-border.svg") 24 round;
+    }
+    .page > * { min-width: 0; }
+
+    /* The title bar. */
+    .masthead { background: #ece9d8; border-bottom: 1px solid #808080; }
+    .site-name { margin: 0; padding: 6px 10px; font: 700 14px/1.4 var(--os-ui); color: #ffffff; background: linear-gradient(#3b7be0, #1554c4 60%, #0a3fa8); }
+    .site-name a { color: #ffffff; text-decoration: none; }
+    .site-name::after { content: ".ppt" / ""; }
+    .site-tagline { display: none; }
+    .site-nav ul { display: flex; flex-wrap: wrap; gap: 2px; margin: 0; padding: 4px 6px; list-style: none; }
+    .site-nav a { display: inline-block; padding: 5px 10px; font: 12px/1.2 var(--os-ui); color: #000000; text-decoration: none; border: 1px solid transparent; }
+    .site-nav a:hover { background: #ffe9a8; border-color: #c89c00; }
+
+    /* The slide. */
+    .main { padding: 20px clamp(10px, 2vw, 26px); }
+    .main:focus { outline: none; }
+    .post {
+      position: relative;
+      padding: 26px var(--os-pad) 0;
+      background: url("../themes/office-suite/img/swoosh.svg") bottom / 100% 120px no-repeat, var(--os-slide);
+      border: 1px solid #000000;
+      box-shadow: 5px 5px 0 #555555;
+      aspect-ratio: 4 / 3;
+      counter-reset: os-slide 1;
+    }
+    .post-head { text-align: center; padding-bottom: 10px; }
+    .post-head::after {
+      content: "";
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 48px;
+      height: 60px;
+      background: url("../themes/office-suite/img/bulb.svg") center / contain no-repeat;
+    }
+    .post-title, .listing-title {
+      margin: 0 0 14px;
+      padding: 0 40px;
+      font: 900 clamp(26px, 5vw, 50px)/1.1 var(--os-black);
+      color: var(--os-yellow);
+      text-shadow: 1px 1px 0 #d27000, 2px 2px 0 #d27000, 3px 3px 0 #a85200, 4px 4px 0 #a85200, 5px 5px 0 #6e3600, 7px 8px 6px rgb(0 0 0 / 0.55);
+      transform: perspective(600px) rotateX(12deg) skewX(-5deg);
+      transform-origin: 50% 100%;
+    }
+    .post-meta { margin: 0; font: italic 18px/1.4 "Times New Roman", Times, serif; color: #e8f0ff; }
+    .post-reading::before { content: " — " / ""; }
+    .post-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 12px; margin: 8px 0 0; padding: 0; font: 15px/1.4 var(--os-ui); }
+    .post-tags a { display: inline-block; padding: 3px 0; }
+
+    .post-body { padding-bottom: 130px; }
+    .post-body > * { margin: 0 0 0.7em; }
+    .post-body > :nth-child(-n + 10) { animation: office-suite-fly 0.5s ease-out backwards; }
+    .post-body > :nth-child(2) { animation-delay: 0.1s; }
+    .post-body > :nth-child(3) { animation-delay: 0.2s; }
+    .post-body > :nth-child(4) { animation-delay: 0.3s; }
+    .post-body > :nth-child(5) { animation-delay: 0.4s; }
+    .post-body > :nth-child(6) { animation-delay: 0.5s; }
+    .post-body > :nth-child(7) { animation-delay: 0.6s; }
+    .post-body > :nth-child(8) { animation-delay: 0.7s; }
+    .post-body > :nth-child(9) { animation-delay: 0.8s; }
+    .post-body > :nth-child(10) { animation-delay: 0.9s; }
+
+    /* Every paragraph a bullet point. */
+    .post-body > p { display: list-item; margin-left: 1.3em; list-style: "■  " outside; }
+    .post-body > p::marker { color: var(--os-yellow); }
+    .post-body ul { padding-left: 2.2em; list-style: "➢  "; }
+    .post-body ul ul { list-style: "–  "; }
+    .post-body ol { padding-left: 2.2em; list-style: upper-alpha; }
+    .post-body li::marker { color: var(--os-yellow); }
+    .post-body li:has(> input[type="checkbox"]) { list-style: none; }
+    .post-body dt { font: 700 20px var(--os-ui); color: var(--os-yellow); }
+    .post-body dd { margin: 0 0 0.5em 1.5em; }
+
+    /* Each section starts a new slide. */
+    .post-body h2 {
+      counter-increment: os-slide;
+      margin: 1.6em calc(-1 * var(--os-pad)) 0.5em;
+      padding: 0 var(--os-pad);
+      font: 900 clamp(22px, 3.4vw, 30px)/1.2 var(--os-black);
+      color: var(--os-yellow);
+      text-shadow: 2px 2px 0 #a85200, 3px 3px 0 #6e3600;
+    }
+    .post-body h2::before {
+      content: "Slide " counter(os-slide) / "";
+      display: block;
+      margin: 0 calc(-1 * var(--os-pad)) 22px;
+      padding: 8px 10px;
+      font: 400 12px/1.2 var(--os-ui);
+      color: #000000;
+      text-shadow: none;
+      background: #a0a0a0;
+      border-top: 1px solid #000;
+      border-bottom: 1px solid #000;
+    }
+    .post-body h3 { margin-top: 1.2em; font: italic 700 24px/1.2 "Times New Roman", Times, serif; color: #ffffff; text-decoration: underline; }
+    .post-body h4 { margin-top: 1em; font: 700 19px/1.2 "Comic Sans MS", "Comic Sans", Tahoma, sans-serif; color: #a8f0ff; }
+    .h-anchor { display: none; }
+    .post-body strong { color: var(--os-yellow); }
+
+    /* A quote on a sticky-note text box. */
+    .post-body blockquote {
+      margin-left: 1em;
+      margin-right: 1em;
+      padding: 12px 16px 12px 64px;
+      font: 18px/1.5 var(--os-ui);
+      color: #000000;
+      background: url("../themes/office-suite/img/bulb.svg") 12px 12px / 36px no-repeat, #ffffcc;
+      border: 1px solid #b8a400;
+      box-shadow: 5px 5px 0 rgb(0 0 0 / 0.45);
+      transform: rotate(-1.2deg);
+    }
+    .post-body blockquote p { margin: 0 0 0.5em; }
+    .post-body blockquote a { color: #003399; }
+
+    .post-body hr { height: 24px; margin: 1.2em 0; border: 0; background: url("../themes/office-suite/img/apple-border.svg") 0 0 / 72px 72px repeat-x; }
+
+    /* Code on a white slide titled "My Code". */
+    .code { margin: 1em 0; color: #000000; background: #ffffff; border: 3px solid #000000; box-shadow: 6px 6px 0 rgb(0 0 0 / 0.5); }
+    .code::before { content: "My Code" / ""; display: block; padding: 10px 14px 0; font: 900 24px/1.2 var(--os-black); color: var(--os-blue); text-shadow: 2px 2px 0 var(--os-yellow); }
+    .code-lang { padding: 0 14px; font: 12px var(--os-ui); color: #444444; }
+    .code pre { margin: 0; padding: 8px 14px 14px; font: 16px/1.45 "Courier New", Courier, monospace; color: #000000; background: #ffffff; }
+    .code pre code { font: inherit; }
+    .chroma .line.hl { display: block; background: #ffff66; }
+    .chroma :is(.k, .kc, .kd, .kn, .kp, .kr, .kt, .nt) { color: #0000ff; }
+    .chroma :is(.s, .sa, .sb, .sc, .dl, .sd, .s1, .s2, .se, .sh, .si, .sx, .sr, .ss) { color: #a31515; }
+    .chroma :is(.c, .ch, .cm, .c1, .cs, .cp, .cpf) { color: #007a00; }
+    .chroma :is(.m, .mb, .mf, .mh, .mi, .il, .mo) { color: #6f2da8; }
+    .post-body :not(pre) > code { font: 0.9em "Courier New", Courier, monospace; color: #000000; background: #ffffff; padding: 0 3px; }
+
+    .table-scroll { margin: 1em 0; }
+    .table-scroll table { font: 16px/1.4 Arial, sans-serif; color: #000000; background: #ffffff; border: 2px solid #000033; }
+    .table-scroll :is(th, td) { padding: 6px 10px; border: 1px solid #000033; vertical-align: top; }
+    .table-scroll th { background: var(--os-yellow); text-align: left; }
+    .table-scroll tbody tr:nth-child(odd) td { background: #dbe8ff; }
+
+    /* Pictures in a gold frame, captions in callout bubbles. */
+    .fig { margin: 1.2em 0; text-align: center; }
+    .fig img { display: inline-block; border: 10px ridge #d4af37; box-shadow: 6px 6px 0 rgb(0 0 0 / 0.5); }
+    .fig figcaption {
+      position: relative;
+      display: inline-block;
+      margin-top: 22px;
+      padding: 6px 14px;
+      font: 16px/1.4 "Comic Sans MS", "Comic Sans", Tahoma, sans-serif;
+      color: #000000;
+      background: #ffff99;
+      border: 2px solid #000000;
+      border-radius: 14px;
+    }
+    .fig figcaption::before { content: ""; position: absolute; top: -16px; left: 28px; border: 8px solid transparent; border-bottom-color: #000000; }
+
+    .footnotes { font: 17px/1.5 "Times New Roman", Times, serif; }
+    .footnotes hr { background: none; border-top: 1px solid #ffffff; height: 0; width: 30%; }
+
+    /* The notes pane, under the slide. */
+    .post-foot {
+      position: relative;
+      margin: 0 calc(-1 * var(--os-pad));
+      padding: 12px var(--os-pad) 14px;
+      font: 14px/1.4 var(--os-ui);
+      color: #000000;
+      background: #ffffff;
+      border-top: 6px solid #a0a0a0;
+    }
+    .post-foot::before { content: "Click to add notes" / ""; display: block; margin-bottom: 8px; padding: 6px 8px; color: #555555; border: 1px dashed #808080; }
+    .post-foot a { color: #003399; }
+    .post-foot a:visited { color: #551a8b; }
+    .post-nav p { margin: 0; }
+    .post-nav-label { font-weight: 700; }
+    .post-nav-label::after { content: ":" / ""; }
+
+    /* Lists of posts: the slide sorter. */
+    .listing-head { margin-bottom: 16px; }
+    .listing-title { padding: 0; text-align: center; transform: none; }
+    .post-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); gap: 30px 24px; margin: 0; counter-reset: os-sort; }
+    .post-item { counter-increment: os-sort; text-align: center; }
+    .post-item::after { content: counter(os-sort) / ""; display: block; margin-top: 6px; font: 13px var(--os-ui); color: #000000; }
+    .post-summary {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      aspect-ratio: 4 / 3;
+      padding: 10px 12px;
+      background: url("../themes/office-suite/img/swoosh.svg") bottom / 100% 40px no-repeat, var(--os-slide);
+      border: 1px solid #000000;
+      box-shadow: 3px 3px 0 #555555;
+    }
+    .post-item:first-child .post-summary { outline: 4px solid #316ac5; outline-offset: 3px; }
+    .post-summary-title { margin: 0 0 6px; font: 900 17px/1.2 var(--os-black); color: var(--os-yellow); text-shadow: 1px 1px 0 #a85200, 2px 2px 0 #6e3600; }
+    .post-summary-title a { color: var(--os-yellow); text-decoration: none; }
+    .post-summary-title a:hover { text-decoration: underline; }
+    .post-summary-meta { margin: 0; font: 13px/1.3 var(--os-ui); color: #ffffff; }
+    .post-summary-meta .post-reading { display: none; }
+    .post-summary-desc { margin: 6px 0 0; font: 14px/1.35 Arial, sans-serif; color: #ffffff; }
+    .term-list { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; }
+    .term-list li { padding: 8px 12px; background: var(--os-slide); border: 1px solid #000; }
+    .listing-404 { margin-top: 24px; }
+    .post-404 { aspect-ratio: auto; }
+
+    /* The slides pane and the task pane. */
+    .rail { font: 13px/1.4 var(--os-ui); color: #000000; background: #e3eefd; border-top: 1px solid #808080; }
+    .rail-section { padding: 0 0 10px; }
+    .rail-title { margin: 0 0 6px; padding: 5px 8px; font: 700 12px/1.3 var(--os-ui); color: #ffffff; background: linear-gradient(#5a8fe6, #2457c5); }
+    .rail-title::after { content: "  ▾" / ""; }
+    .rail ul { margin: 0; padding: 0 8px; list-style: none; }
+    .rail li { padding: 3px 0; }
+    .rail a { display: inline-block; padding: 2px 0; color: #003399; }
+    .rail a:visited { color: #551a8b; }
+    .rail-date { display: none; }
+    .rail-recent ul { counter-reset: os-thumb; display: grid; gap: 10px; }
+    .rail-recent li { counter-increment: os-thumb; display: grid; grid-template-columns: 18px 1fr; align-items: start; gap: 4px; }
+    .rail-recent li::before { content: counter(os-thumb) / ""; font: 11px var(--os-ui); color: #333; }
+    .rail-recent a { display: block; aspect-ratio: 4 / 3; padding: 6px; overflow-wrap: anywhere; font: 700 11px/1.3 var(--os-ui); color: var(--os-yellow); text-decoration: none; background: var(--os-slide); border: 1px solid #000; }
+    .rail-recent a:hover { outline: 3px solid #316ac5; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 0 10px; }
+    .tag-count { color: #333333; }
+    .archive-year-label { font-weight: 700; }
+    .archive-year ul { padding-left: 12px; }
+
+    /* Clip art. */
+    .deco { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 14px; background: #e3eefd; }
+    .deco span { display: block; width: 64px; height: 64px; background: center / contain no-repeat; }
+    .deco span:nth-child(1) { background-image: url("../themes/office-suite/img/trophy.svg"); transform: rotate(-8deg); }
+    .deco span:nth-child(2) { background-image: url("../themes/office-suite/img/computer.svg"); }
+    .deco span:nth-child(3) { background-image: url("../themes/office-suite/img/arrow.svg"); transform: rotate(12deg); }
+    .deco span:nth-child(4) { background-image: url("../themes/office-suite/img/bulb.svg"); transform: rotate(6deg); }
+    .deco span:nth-child(n + 5) { display: none; }
+
+    /* The status bar. */
+    .site-foot { padding: 4px 10px; font: 12px/1.4 var(--os-ui); color: #000000; background: linear-gradient(#f3f3f3, #d8d8d8); border-top: 1px solid #808080; }
+    .site-foot p { margin: 0; }
+    .site-foot-name::before { content: "Slide 1 of 1   |   Default Design   |   English (U.S.)   |   " / ""; white-space: pre-wrap; }
+
+    @media (max-width: 999px) {
+      .rail-recent ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    /* Normal view: slides on the left, the slide, the task pane. */
+    @media (min-width: 1000px) {
+      .page { grid-template-columns: 200px minmax(0, 1fr) 220px; grid-template-rows: auto auto 1fr auto; }
+      .masthead { grid-column: 1 / -1; grid-row: 1; }
+      .rail-a { grid-column: 1; grid-row: 2 / 4; border-top: 0; border-right: 1px solid #808080; }
+      .main { grid-column: 2; grid-row: 2 / 4; }
+      .rail-b { grid-column: 3; grid-row: 2; border-top: 0; border-left: 1px solid #808080; }
+      .deco { grid-column: 3; grid-row: 3; flex-direction: column; align-items: center; justify-content: flex-start; border-left: 1px solid #808080; }
+      .site-foot { grid-column: 1 / -1; grid-row: 4; }
+    }
+  }
+}

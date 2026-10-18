@@ -3,7 +3,7 @@
 // test.
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
-import { loadImages, PAGES, problems, THEMES, watch, WIDTHS } from "./helpers.mjs";
+import { animationEnds, loadImages, PAGES, problems, settle, THEMES, watch, WIDTHS } from "./helpers.mjs";
 
 const EXIT = { background: "rgb(0, 112, 60)", color: "rgb(255, 255, 255)", weight: "700" };
 
@@ -16,6 +16,7 @@ for (const t of THEMES) {
           await watch(page);
           await page.goto(`${path}?bad=${t.id}`);
           await loadImages(page);
+          await settle(page);
           expect(await page.evaluate(() => document.documentElement.dataset.theme)).toBe(t.id);
 
           // No sideways scrolling.
@@ -48,14 +49,46 @@ for (const t of THEMES) {
             expect(style).toEqual(EXIT);
           }
 
+          // Content stays inside its boxes: the article holds its own text,
+          // and the main regions never overlap each other.
+          const boxes = await page.evaluate(() => {
+            const r = (el) => el && el.getBoundingClientRect();
+            const post = document.querySelector(".post");
+            const kids = post ? [...post.querySelectorAll(":scope > .post-head, :scope > .post-body > *")].filter((k) => getComputedStyle(k).display !== "contents") : [];
+            const spill = post ? kids.filter((k) => r(k).bottom > r(post).bottom + 1).map((k) => k.tagName + "." + k.className) : [];
+            const regions = [".masthead", ".main", ".rail-a", ".rail-b", ".site-foot"]
+              .map((s) => [s, document.querySelector(s)])
+              .filter(([, el]) => el && el.offsetParent !== null && getComputedStyle(el).display !== "contents" && r(el).height > 0);
+            const overlaps = [];
+            for (let i = 0; i < regions.length; i++)
+              for (let j = i + 1; j < regions.length; j++) {
+                const a = r(regions[i][1]), b = r(regions[j][1]);
+                const x = Math.min(a.right, b.right) - Math.max(a.left, b.left);
+                const y = Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);
+                if (x > 2 && y > 2) overlaps.push(`${regions[i][0]} overlaps ${regions[j][0]}`);
+              }
+            return { spill, overlaps };
+          });
+          expect(boxes.spill, "content spilling out of the article").toEqual([]);
+          expect(boxes.overlaps, "page regions overlapping").toEqual([]);
+
           expect(await problems(page)).toEqual([]);
         });
       }
+
+      test("everything that moves stops within five seconds", async ({ page }) => {
+        // WCAG 2.2.2: anything that moves for more than five seconds needs a
+        // pause button. Themes don't have one, so nothing may run longer.
+        await page.goto(`${path}?bad=${t.id}`);
+        const long = (await animationEnds(page)).filter((a) => a.end === null || a.end > 5000);
+        expect(long, "animations that run past five seconds").toEqual([]);
+      });
 
       test("accessibility", async ({ page }) => {
         await page.setViewportSize({ width: 1280, height: 900 });
         await page.goto(`${path}?bad=${t.id}`);
         await loadImages(page);
+        await settle(page);
         const tags = ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"];
         const all = await new AxeBuilder({ page }).withTags(tags).disableRules(["color-contrast"]).analyze();
         expect(all.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(" ")).join(", ")}`)).toEqual([]);
@@ -71,6 +104,7 @@ for (const t of THEMES) {
         await page.setViewportSize({ width: 1280, height: 900 });
         await page.goto(`${path}?bad=${t.id}`);
         await loadImages(page);
+        await settle(page);
         const p = await page.locator(".post-body > p").first().evaluate((el) => {
           const s = getComputedStyle(el);
           const size = parseFloat(s.fontSize);

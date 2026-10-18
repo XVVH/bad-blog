@@ -38,6 +38,10 @@ Below it, as secondary detail, the note names the theme they escaped from and li
 
 **D12. More bad deals from a shuffled deck**, so every theme is seen before any repeats. The next theme is fetched in the background.
 
+**D12a. More bad spins first:** three little slot-machine reels in the bar for about 0.6 seconds, with no theme names, skipped under reduced motion. The reels scroll rather than flicker, so nothing flashes.
+
+**D12b. Asking for a bad theme by name ends an escape.** A `?bad=<id>` link to a bad theme (from the theme index, or shared) works like pressing More bad.
+
 **D13. Launch themes are all legible** ([RULES.md](RULES.md) tier 2). Relaxing legibility is a later-phase conversation, and a theme that isn't legible leaves the first-visit lottery.
 
 **D14. Launch set:** Under Construction, The Focus Group, Sidebar Hell, Haute and Office Suite. The backlog in [THEMES.md](THEMES.md) is open for riffing and expansion.
@@ -45,6 +49,8 @@ Below it, as secondary detail, the note names the theme they escaped from and li
 **D14a. No in-page citations.** The Focus Group was planned with every design choice footnoted with its study. That explains the joke, so it's out. The studies remain the theme's sources and can appear in its escape note.
 
 **D14b. Device preferences never pick Not Bad.** A reader whose device asks for more contrast still gets a random bad theme (owner: "that's cheating"). Reduced motion gets still versions of the themes, not Not Bad. Only missing JavaScript and printing fall back to Not Bad, because those are technical fallbacks, not preferences.
+
+**D14c. The theme index lives at `/designs/`.** It names every theme and the rules each breaks, with a link to try each one. It's always shown in Not Bad (`bad: false`), and it's linked only from Not Bad: from the escape note and from a footer link that the floor hides in every bad theme.
 
 **D15. Posts can opt out.** `bad: false` keeps a post in Not Bad; `bad: [ids]` limits it to the listed themes. This is for posts where the joke doesn't fit.
 

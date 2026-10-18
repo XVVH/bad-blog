@@ -16,3 +16,6 @@ stays_plain: "This one stays plain."
 changed: "The design changed."
 
 dismiss: "Dismiss"
+
+# Link to the theme index (/designs/). Shown only in Not Bad.
+designs_link: "See every design"

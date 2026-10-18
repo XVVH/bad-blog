@@ -46,4 +46,20 @@ export const loadImages = async (page) => {
   });
 };
 
+// Every animation running on the page, with when it ends (ms after the
+// page's timeline started). Infinity means it never stops.
+export const animationEnds = (page) =>
+  page.evaluate(() =>
+    document.getAnimations().map((a) => {
+      const t = a.effect?.getComputedTiming?.() ?? {};
+      const name = a.animationName ?? a.transitionProperty ?? a.constructor.name;
+      return { name, end: t.endTime === Infinity || t.iterations === Infinity ? null : t.endTime };
+    }),
+  );
+
+// Wait for every finite animation to finish, so tests see the settled page.
+export const settle = async (page) => {
+  await page.evaluate(() => Promise.all(document.getAnimations().filter((a) => a.effect?.getComputedTiming?.().endTime !== Infinity).map((a) => a.finished.catch(() => null))));
+};
+
 export const currentTheme = (page) => page.evaluate(() => document.documentElement.dataset.theme);

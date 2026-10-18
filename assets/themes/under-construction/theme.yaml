@@ -15,4 +15,4 @@ rules_broken:
   - "A permanent “under construction” sign. It will never be finished."
   - "A visitor counter, displayed with pride."
 smell_exemptions:
-  - "Gradient-clipped text on the site name: per-letter rainbow colouring, the 1997 way, not the indigo-violet smell."
+  - "gradient-text: the site name is coloured letter by letter in rainbow stripes, the 1997 way, not the indigo-violet smell."

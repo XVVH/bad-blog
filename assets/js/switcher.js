@@ -202,9 +202,30 @@ const showNote = (fromId) => {
   note.focus({ preventScroll: true });
 };
 
-more.addEventListener("click", () => {
+// The spin: three reels in the bar, about 0.6s, no theme names. The reels
+// scroll rather than flicker, so nothing flashes. Skipped under reduced motion.
+let spinning = false;
+const spin = () =>
+  new Promise((done) => {
+    if (reducedMotion.matches) return done();
+    const reel = document.createElement("span");
+    reel.className = "bar-spin";
+    reel.setAttribute("aria-hidden", "true");
+    reel.append(...[0, 1, 2].map(() => document.createElement("span")));
+    more.after(reel);
+    window.setTimeout(() => {
+      reel.remove();
+      done();
+    }, 650);
+  });
+
+more.addEventListener("click", async () => {
+  if (spinning) return;
   const next = deal();
   if (!next) return;
+  spinning = true;
+  await spin();
+  spinning = false;
   local?.removeItem("tt:escaped");
   session?.setItem("tt:theme", next);
   hideNote();

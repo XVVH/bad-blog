@@ -31,11 +31,13 @@ Chosen for different axes, to stress the markup contract.
 
 ## Phase 2: complete the launch set and launch
 
-- [ ] Haute
-- [ ] Office Suite
-- [ ] Spin animation, View Transitions, the theme index in Not Bad
-- [ ] Per-post `bad:` opt-out
-- [ ] Smell lint
+- [x] Haute
+- [x] Office Suite
+- [x] Spin animation, View Transitions, the theme index in Not Bad (`/designs/`)
+- [x] Per-post `bad:` opt-out (built in phase 0)
+- [x] Smell lint
+- [x] Floor tests for animations (five seconds) and overlapping content
+- [ ] The owner reviews Haute and Office Suite in the gallery
 - [ ] Launch: retire the music library site and move `synchromeshi.com` to the blog (see D19 in DECISIONS.md)
 
 ## Phase 3 and beyond
@@ -54,6 +56,9 @@ Chosen for different axes, to stress the markup contract.
 
 ## Open questions
 
-Not Bad's open questions (typeface, indents, dot leaders) are in `docs/themes/not-bad.md`.
+For the owner, from the theme journals:
+
+- Not Bad: typeface, first-line indents, dot leaders (`docs/themes/not-bad.md`).
+- Haute: handsome at first sight, bad only in use. Bad enough? (`docs/themes/haute.md`)
 
 Answered (October 2026): the name (D5a), the escape note copy (D9), the music library site (D19), device preferences (D14b), The Focus Group's citations (D14a).

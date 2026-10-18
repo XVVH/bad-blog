@@ -80,5 +80,14 @@ It is excluded from production builds. It never appears in the rotation, can't b
 
 ## Checking for the smell
 
-- **Mechanical:** a smell lint (planned) flags known tells in shipped CSS and templates: smell fonts as primary families, Tailwind default hex values, `backdrop-filter: blur`, gradient-clipped text, emoji bullets. A theme that uses one on purpose, for its own reasons, declares it in `theme.yaml` with the reason.
+- **Mechanical:** `scripts/lint-smell.mjs` (part of `npm run lint`) flags known surface tells in everything that ships. Rule ids:
+  - `smell-font`: Inter, Geist or a system UI font as the first family
+  - `tailwind-hex`: Tailwind default colours
+  - `glass`: `backdrop-filter: blur`
+  - `gradient-text`: gradient-clipped text
+  - `emoji`: ✨🚀💡🎉👋
+  - `pill`: `border-radius: 9999px`
+  - `copy`: phrases from the copy smell
+
+  A theme that uses one on purpose, for its own reasons, lists it in `theme.yaml` as `smell_exemptions: ["<rule-id>: <reason>"]`. The lint can't see the deep smell.
 - **Human:** the owner reviews the screenshot gallery. That is the real test.

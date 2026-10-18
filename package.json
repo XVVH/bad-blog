@@ -6,7 +6,7 @@
   "scripts": {
     "build:test": "hugo --environment development --panicOnWarning --gc -d .test-site",
     "serve": "node tests/serve.mjs .test-site 8787",
-    "lint": "node scripts/lint-themes.mjs",
+    "lint": "node scripts/lint-themes.mjs && node scripts/lint-smell.mjs",
     "test:unit": "node --test \"tests/*.test.mjs\"",
     "test:e2e": "playwright test",
     "test": "npm run lint && npm run test:unit && npm run build:test && npm run test:e2e"

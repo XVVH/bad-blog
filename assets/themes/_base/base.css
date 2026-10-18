@@ -9,6 +9,11 @@
 */
 @layer reset, base, theme, floor;
 
+@keyframes tt-reel {
+  from { transform: translateY(0); }
+  to { transform: translateY(-84px); }
+}
+
 @layer reset {
   *, *::before, *::after { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
@@ -39,6 +44,19 @@
   .deco, .hits { display: none; }
 
   .bar-inner { display: flex; align-items: center; gap: 0.5rem; }
+
+  /* The More bad spin (switcher.js): three little slot-machine reels. */
+  .bar-spin { display: inline-flex; gap: 3px; margin: 0 8px; }
+  .bar-spin > span { display: block; width: 14px; height: 14px; overflow: hidden; border: 1px solid currentColor; }
+  .bar-spin > span::before {
+    content: "";
+    display: block;
+    height: 98px;
+    background: linear-gradient(#e00000 0 14px, #ff9900 14px 28px, #ffe600 28px 42px, #00b050 42px 56px, #0070c0 56px 70px, #7030a0 70px 84px, #e00000 84px 98px);
+    animation: tt-reel 0.6s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+  }
+  .bar-spin > span:nth-child(2)::before { animation-duration: 0.5s; animation-direction: reverse; }
+  .bar-spin > span:nth-child(3)::before { animation-duration: 0.65s; }
 
   .post-list, .term-list, .tag-cloud, .archive-years, .post-tags { list-style: none; padding: 0; }
 

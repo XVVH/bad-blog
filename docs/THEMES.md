@@ -17,12 +17,12 @@ The escape destination. It must be genuinely good to read, and it must not smell
 - Built from book typography: the ranges in Butterick's *Practical Typography* (15–25px text, 45–90 characters per line, line spacing of 120–145%), and Bringhurst.
 - A real text typeface with real italics, probably a serif. Quiet colour that follows the device's dark mode.
 - No cards, gradients, pills, shadows, icon grids or eyebrow labels. It's a book, not a startup.
-- It hosts the escape note and the theme index, the only places themes are named and explained.
+- It hosts the escape note and the theme index (`/designs/`), the only places themes are named and explained.
 - **Its design hasn't been chosen yet.** Propose one to the owner before building it.
 
 ## Launch set
 
-Built so far: Under Construction, Sidebar Hell and The Focus Group (phase 1). Haute and Office Suite are next (phase 2). Each built theme's journal is in `docs/themes/`.
+All five are built: Under Construction, Sidebar Hell and The Focus Group (phase 1), and Haute and Office Suite (phase 2). Each one's journal is in `docs/themes/`. The theme index at `/designs/` lists them, from Not Bad only.
 
 ### Under Construction
 - **Failure of taste:** amateur more-is-more. Not "it's old".

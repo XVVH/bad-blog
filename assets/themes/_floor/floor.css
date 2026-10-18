@@ -78,7 +78,8 @@
     order: 0;
     min-height: 44px;
     min-width: 44px;
-    flex: 0 1 auto;
+    flex: 0 0 auto;
+    white-space: nowrap;
     visibility: visible;
     opacity: 1;
   }
@@ -120,6 +121,10 @@
   /* Yellow ring inside a black one: visible on any background. */
   .bar-less:focus-visible { outline: 3px solid #ffdd00; outline-offset: 0; box-shadow: 0 0 0 7px #0b0c0c; }
   :root[data-theme="not-bad"] .bar-less { display: none; }
+
+  /* The theme index names every theme, so it's reachable only from Not Bad
+     (DECISIONS.md D9). No bad theme can show the link. */
+  :root:not([data-theme="not-bad"]) .designs-link, :root:not([data-theme="not-bad"]) .site-foot-designs { display: none; }
 
   /* Anything a theme script injects carries data-tt-deco. Not Bad (and so
      printing) never shows it, even before the script cleans up. */

@@ -48,6 +48,8 @@
   if (param && valid(param)) {
     theme = param;
     if (session) session.setItem("tt:theme", theme);
+    // Asking for a bad theme by name is like pressing More bad: it ends an escape.
+    if (local && theme !== "not-bad") local.removeItem("tt:escaped");
   } else if (local && local.getItem("tt:escaped") === "1") {
     theme = "not-bad";
   } else if (session && valid(session.getItem("tt:theme"))) {

@@ -46,4 +46,4 @@ Run `npm test` before every push. More commands, and how everything fits togethe
 
 ## Status
 
-Phases 0 and 1 are built and tested: the plumbing, Not Bad (a proposal awaiting the owner), and three bad themes (Under Construction, Sidebar Hell, The Focus Group). Next: Haute and Office Suite. See [`docs/ROADMAP.md`](docs/ROADMAP.md).
+Phases 0–2 are built and tested: the plumbing, Not Bad (a proposal awaiting the owner), and all five launch themes (Under Construction, Sidebar Hell, The Focus Group, Haute, Office Suite). What's left before launch is the owner's: review, Netlify, the domain. See [`docs/ROADMAP.md`](docs/ROADMAP.md).

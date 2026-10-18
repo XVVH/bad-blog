@@ -5,7 +5,7 @@
 // Runs only when GALLERY=1. Output: gallery/index.html plus PNGs.
 import { mkdirSync, writeFileSync } from "node:fs";
 import { expect, test } from "@playwright/test";
-import { loadImages, THEMES } from "./helpers.mjs";
+import { loadImages, settle, THEMES } from "./helpers.mjs";
 
 test.skip(!process.env.GALLERY, "set GALLERY=1 to build the screenshot gallery");
 
@@ -32,7 +32,15 @@ for (const t of order) {
         await page.setViewportSize({ width, height });
         await page.goto(`${path}?bad=${t.id}`);
         await loadImages(page);
-        await page.waitForTimeout(200);
+        // Scroll through once, so anything that reveals on scroll is shown.
+        await page.evaluate(async () => {
+          for (let y = 0; y < document.documentElement.scrollHeight; y += window.innerHeight) {
+            window.scrollTo(0, y);
+            await new Promise((r) => setTimeout(r, 60));
+          }
+          window.scrollTo(0, 0);
+        });
+        await settle(page);
         mkdirSync(OUT, { recursive: true });
         await page.screenshot({ path: `${OUT}/${file}`, fullPage: true, animations: "disabled" });
         expect(true).toBe(true);

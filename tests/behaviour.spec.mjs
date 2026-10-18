@@ -183,9 +183,11 @@ test("printing always uses Not Bad", async ({ page }) => {
 });
 
 test("the hit counter counts once per visit and shows six digits", async ({ page, request }) => {
-  await page.goto(OTHER);
+  // A page no other test visits, because the test server's counts are shared.
+  const COUNTED = "/posts/sample-two/";
+  await page.goto(COUNTED);
   await expect(page.locator(".hits-count")).toHaveText(/^\d{6}$/);
-  const read = async () => (await (await request.get(`/api/hit?path=${encodeURIComponent(OTHER)}`)).json()).count;
+  const read = async () => (await (await request.get(`/api/hit?path=${encodeURIComponent(COUNTED)}`)).json()).count;
   const before = await read();
   await page.reload();
   await expect(page.locator(".hits-count")).toHaveText(/^\d{6}$/);
@@ -195,6 +197,43 @@ test("the hit counter counts once per visit and shows six digits", async ({ page
 test("the hit counter refuses pages that don't exist", async ({ request }) => {
   const res = await request.post("/api/hit", { data: "/not-a-real-page/", headers: { "content-type": "text/plain" } });
   expect(res.status()).toBe(404);
+});
+
+test("the theme index is reachable only from Not Bad, and always shows in Not Bad", async ({ page }) => {
+  const link = page.locator(".site-foot .designs-link");
+  for (const t of BAD) {
+    await page.goto(`${OTHER}?bad=${t.id}`);
+    await expect(link, `${t.id} shows the theme index link`).toBeHidden();
+  }
+  await page.goto(`${OTHER}?bad=not-bad`);
+  await expect(link).toBeVisible();
+  await link.click();
+  expect(await currentTheme(page)).toBe("not-bad");
+  for (const t of BAD) await expect(page.locator(`#design-${t.id} h2`)).toHaveText(t.name);
+});
+
+test("the escape note links to the theme index", async ({ page }) => {
+  await page.goto(`${KITCHEN}?bad=${BAD[0].id}`);
+  await lessBad(page).click();
+  await expect(page.locator(".bar-note .designs-link")).toBeVisible();
+});
+
+test("asking for a bad theme by name ends an escape", async ({ context }) => {
+  const page = await context.newPage();
+  await page.goto(`${KITCHEN}?bad=${BAD[0].id}`);
+  await lessBad(page).click();
+  await page.goto(`${OTHER}?bad=${BAD[0].id}`);
+  await page.goto(KITCHEN);
+  expect(await currentTheme(page)).toBe(BAD[0].id);
+});
+
+test("the More bad spin names nothing", async ({ page }) => {
+  await page.goto(`${KITCHEN}?bad=${BAD[0].id}`);
+  await moreBad(page).click();
+  const spin = page.locator(".bar-spin");
+  await expect(spin).toBeAttached();
+  expect(await spin.innerText()).toBe("");
+  await expect(spin).not.toBeAttached();
 });
 
 test("theme metadata is complete", () => {

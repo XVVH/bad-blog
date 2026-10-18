@@ -4,7 +4,7 @@
   <header class="post-head">
     <h1 class="post-title">{{ .Title }}</h1>
     {{- if $isPost }}
-    <p class="post-meta"><time class="post-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ time.Format ":date_long" .Date }}</time> <span class="post-reading">{{ .ReadingTime }} min read</span></p>
+    <p class="post-meta"><time class="post-date" datetime="{{ .Date.Format "2006-01-02" }}" data-day="{{ .Date.Format "02" }}" data-month="{{ .Date.Format "01" }}" data-year="{{ .Date.Format "2006" }}" data-weekday="{{ .Date.Format "Monday" }}">{{ time.Format ":date_long" .Date }}</time> <span class="post-reading">{{ .ReadingTime }} min read</span></p>
     {{- with .GetTerms "tags" }}
     <ul class="post-tags" aria-label="Tags">
       {{- range . }}

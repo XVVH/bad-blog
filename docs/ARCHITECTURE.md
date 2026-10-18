@@ -92,7 +92,7 @@ Every page type renders the same semantic skeleton, in every theme (`layouts/bas
 - The `.deco` spans are empty hooks for decoration. Anything a theme injects goes inside an `aria-hidden` container.
 - Themes rearrange the page with CSS grid. A theme may not change the HTML for itself alone; if it needs a new hook, add it for every theme.
 - Decoration comes from the content, never from extra authoring: "NEW!" from the post date (`data-fresh` marks posts under 14 days old at build time), emoji or clip art chosen by hashing the heading text, testimonials from existing blockquotes, numbers from the hit counter.
-- Hooks themes can rely on: `.deco` and `.hits` (hidden until a theme shows them), `data-fresh` on recent list items, `data-count` on tags, `data-date` on archive entries, `data-lang` on code figures, `html[data-hits]` once the counter answers.
+- Hooks themes can rely on: `.deco` and `.hits` (hidden until a theme shows them), `data-day`, `data-month`, `data-year` and `data-weekday` on post dates (for `content: attr(…)`), `data-fresh` on recent list items, `data-count` on tags, `data-date` on archive entries, `data-lang` on code figures, `html[data-hits]` once the counter answers.
 
 ## Theme packages
 
@@ -170,7 +170,7 @@ What the floor locks:
 
 A tiny inline script in `<head>` (`assets/js/boot.js`), allowed by its hash in the CSP, picks the theme before anything is drawn:
 
-1. `?bad=<id>` in the URL → that theme.
+1. `?bad=<id>` in the URL → that theme. A bad theme asked for by name also ends an escape (D12b).
 2. The reader escaped before (localStorage) → Not Bad.
 3. A theme was already picked this visit (sessionStorage) → that theme.
 4. Otherwise → a random `front_door` theme, saved for this visit.
@@ -182,6 +182,7 @@ Without JavaScript, the page keeps the `data-theme="not-bad"` it was built with,
 The switcher (`assets/js/switcher.js`) is a small module, deferred:
 
 - **More bad:**
+  - Spins first: three slot-machine reels in the bar (`.bar-spin`, styled in `_base`) for about 0.6 seconds, no names, skipped under reduced motion. Clicks during the spin are ignored.
   - Deals the next theme from a shuffled deck, kept for the visit.
   - Crossfades to the new theme with the View Transitions API where the browser has it, skipped under reduced motion. (A short nameless spin is planned for phase 2.)
   - Changes `data-theme`, runs the old theme's `deactivate` and the new one's `activate`, and restores the reader's position.
@@ -193,6 +194,10 @@ The switcher (`assets/js/switcher.js`) is a small module, deferred:
 - **Keeping the reader's place:** before switching, note which block of the article is at the top of the screen and how far into it the reader is. After switching, scroll back to it. Pixel positions don't survive a change of layout, so don't use them.
 - **Prefetch:** the next theme in the deck has its script (if any) preloaded when the browser is idle. The CSS is already loaded.
 - A post's `bad:` front matter limits the deck or turns it off.
+
+## The theme index
+
+`content/designs.md` with `layouts/designs.html` renders `/designs/` from the manifest: every shipped bad theme, its `rules_broken`, and a "Try it" link (`/?bad=<id>`). The page has `bad: false`, so it always shows in Not Bad. Links to it carry the class `designs-link` (in the escape note and the footer), and the floor hides them in every bad theme, because the index explains the joke.
 
 ## Hit counter
 
@@ -228,6 +233,7 @@ The switcher (`assets/js/switcher.js`) is a small module, deferred:
 Playwright and axe-core, run in GitHub Actions (`.github/workflows/ci.yml`). These are development-only dependencies; nothing from them reaches the site. The theme list comes from the built manifest, so a new theme is tested automatically.
 
 - `scripts/lint-themes.mjs`: the theme package contract above.
+- `scripts/lint-smell.mjs`: known surface tells of the smell (SMELL.md) in everything that ships: smell fonts, Tailwind default colours, frosted glass, gradient text, smell emoji, pills, smell copy. A theme can exempt a rule in `theme.yaml` as `"<rule-id>: <reason>"`.
 - `tests/counter.test.mjs`: the hit counter's logic.
 - `tests/production.test.mjs`: builds production and checks that `_control` and fixtures don't ship, the CSP hash matches the inline script, and there are no third-party assets or inline styles.
 - `tests/floor.spec.mjs`: the matrix below.
@@ -243,6 +249,8 @@ Checks:
 - With reduced motion emulated, `document.getAnimations()` returns nothing.
 - With `forced-colors: active`, the article and the fire exit stay visible.
 - No content security policy violations, page errors or console errors.
+- Article content stays inside the article, and the page's regions (masthead, main, sidebars, footer) never overlap.
+- Every animation ends within five seconds (WCAG 2.2.2). Tests wait for animations to settle before checking contrast and layout.
 - Body text in legible themes is at least 16px, with line height at least 1.4 and lines under about 90 characters.
 - Broken internal links and missing alt text fail the build.
 - The smell lint (planned) runs over shipped CSS and templates.
