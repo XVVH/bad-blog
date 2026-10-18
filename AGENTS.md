@@ -1,6 +1,6 @@
-# The Bad Blog: read this first
+# Turrible Takes: read this first
 
-This repository is a Markdown-to-static-site blog whose designs are **bad on purpose**. Before you change anything, understand why. The most likely way to damage this project is to "improve" it.
+This repository is **Turrible Takes**, a Markdown-to-static-site blog whose designs are **bad on purpose**. Before you change anything, understand why. The most likely way to damage this project is to "improve" it.
 
 ## The short version
 
@@ -24,6 +24,7 @@ Then, depending on the task:
 
 ## Rules for agents
 
+- **The name is "Turrible Takes".** The misspelling is deliberate. Never correct it, in copy, metadata or code.
 - **Fix bugs, never fix taste.** In a bad theme, the ugliness is the spec. Breaking `docs/RULES.md` is a bug; a clashing colour is not.
 - **Don't explain the joke** in any bad theme: no theme names, badness meters, "this is intentional" notes or rules-broken lists. Those live only in Not Bad, after an escape.
 - **Don't restyle the Less bad button.** It is the fire exit: same place, shape and words in every theme.

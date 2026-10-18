@@ -34,7 +34,7 @@ Chosen for different axes, to stress the markup contract.
 - [ ] Spin animation, View Transitions, the theme index in Not Bad
 - [ ] Per-post `bad:` opt-out
 - [ ] Smell lint
-- [ ] Launch: move the domain (see D19 in DECISIONS.md)
+- [ ] Launch: retire the music library site and move `synchromeshi.com` to the blog (see D19 in DECISIONS.md)
 
 ## Phase 3 and beyond
 
@@ -45,10 +45,6 @@ Chosen for different axes, to stress the markup contract.
 
 ## Open questions
 
-For the owner:
+None open. Not Bad's design will be proposed to the owner before it's built.
 
-- The site's name.
-- The escape note's copy.
-- The music library site: move it to a subdomain, or retire it?
-- Should `prefers-contrast: more` start readers in Not Bad?
-- Do The Focus Group's in-page citations count as explaining the joke? (See THEMES.md.)
+Answered (October 2026): the name (D5a), the escape note copy (D9), the music library site (D19), device preferences (D14b), The Focus Group's citations (D14a).

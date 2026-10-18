@@ -124,7 +124,7 @@ A tiny inline script in `<head>`, allowed by its hash in the CSP, picks the them
 
 Every storage read and write is wrapped in try/catch. If storage is blocked, the switcher adds `?bad=<id>` to internal links instead, so the theme or the escape survives from page to page.
 
-Without JavaScript, the page links Not Bad. Printing always uses Not Bad. Readers who ask for reduced motion get still versions of the themes.
+Without JavaScript, the page links Not Bad. Printing always uses Not Bad. Readers who ask for reduced motion get still versions of the themes. No device preference (contrast, motion, colour scheme) ever selects Not Bad (D14b in DECISIONS.md).
 
 The switcher script is small and loads deferred:
 
@@ -136,7 +136,7 @@ The switcher script is small and loads deferred:
 - **Less bad:**
   - Switches to Not Bad at once, with no animation (it's already loaded), and restores the reader's position.
   - Sets the escape flag.
-  - Opens the escape note in the bar with the theme's `rules_broken`, and announces it in the live region.
+  - Opens the escape note in the bar, and announces it in the live region. The note is the owner's copy (D9 in DECISIONS.md), followed by the theme's name and its `rules_broken`. Keep the copy in one data file, so it's edited in one place.
 - **Keeping the reader's place:** before switching, note which block of the article is at the top of the screen and how far into it the reader is. After switching, scroll back to it. Pixel positions don't survive a change of layout, so don't use them.
 - **Prefetch:** the next theme in the deck is fetched when the browser is idle, so More bad switches instantly.
 - Crossfade with the View Transitions API where the browser has it.

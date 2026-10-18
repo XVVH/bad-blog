@@ -41,7 +41,7 @@ Breaking any of these is a bug, whatever the theme. Automated tests enforce as m
 - No third-party requests of any kind.
 
 **The joke**
-- No bad theme explains itself: no theme name, no badness meter, no "this is intentional", no rules-broken list, no link to a theme index. These exist only in Not Bad, after an escape.
+- No bad theme explains itself: no theme name, no badness meter, no "this is intentional", no rules-broken list, no in-page citations for its design choices, no link to a theme index. These exist only in Not Bad, after an escape.
 - The More bad spin shows no theme names.
 
 ## 2. Legibility (all launch themes)

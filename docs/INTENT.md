@@ -2,7 +2,7 @@
 
 ## What this is
 
-A personal blog for long-form writing, built from Markdown into a static site. No CMS, no database, no comments: less to manage and less to secure. The writing is the point; the designs are the joke.
+**Turrible Takes** (misspelled on purpose) is a personal blog for long-form writing, built from Markdown into a static site. No CMS, no database, no comments: less to manage and less to secure. The writing is the point; the designs are the joke.
 
 ## Why the designs are bad
 

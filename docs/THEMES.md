@@ -49,7 +49,8 @@ The escape destination. It must be genuinely good to read, and it must not smell
 - **Axes:** palette, structure, graphics. It belongs to no era.
 - **Signature moves:** maximum clutter and a deliberately unfamiliar layout, all in the least-liked palette, delivered deadpan.
 - **Code blocks:** survey-hated token colours that still pass contrast.
-- **Watch for:** body text stays legible on 448C (light text on it passes). **Open question:** planning originally had every design decision footnoted in the page with its study. Does that count as explaining the joke? If so, the citations go only in the escape note.
+- **Watch for:** body text stays legible on 448C (light text on it passes).
+- **No in-page citations.** Footnoting each design choice with its study would explain the joke (D14a in DECISIONS.md). The studies appear only in the escape note's rules-broken list.
 
 ### Sidebar Hell
 - **Failure of taste:** widget maximalism. The article is the least important thing on the page.

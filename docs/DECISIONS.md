@@ -12,7 +12,9 @@ Settled during planning in October 2026. Each entry says what was decided, why, 
 
 **D4. The default AI look doesn't ship.** This is the foundation of the project: the blog is a counterweight to the AI design smell and an experiment in what bad design means to an LLM. The smell exists only as `_control`, the dev-only scaffold and baseline. *Rejected:* "✨ The Default" as a launch theme. It was proposed during planning and cut by the owner.
 
-**D5. Content needs:** links between posts, external links, images and code blocks. Footnotes, tables, smart quotes and heading anchors are planned too. Nothing to migrate; all content is new. The owner will choose the site's name.
+**D5. Content needs:** links between posts, external links, images and code blocks. Footnotes, tables, smart quotes and heading anchors are planned too. Nothing to migrate; all content is new.
+
+**D5a. The site is called "Turrible Takes".** The misspelling is intentional. Never correct it.
 
 ## The escape hatch
 
@@ -22,7 +24,11 @@ Settled during planning in October 2026. Each entry says what was decided, why, 
 
 **D8. Less bad is the fire exit:** identical in every theme, top right, not themeable.
 
-**D9. The joke is explained only after an escape.** In bad themes the bar shows only the two buttons. Escaping opens a note in the bar saying which theme they escaped from, that it was bad on purpose, the rules it broke, that Not Bad will stick, and that More bad is there if they change their mind. It shows once per escape, isn't a popup, can be dismissed, and is announced to screen readers. The owner writes the copy. *Rejected:* explaining on first visit (owner: "far too easy"); theme names or a badness meter in the bar; rules-broken footers in bad themes; spins that show theme names; a theme index reachable from bad themes.
+**D9. The joke is explained only after an escape.** In bad themes the bar shows only the two buttons. Escaping opens a note in the bar. Its message is the owner's copy, used verbatim:
+
+> This site was designed to be intentionally jarring from a design perspective. If that’s getting in the way of your enjoyment, here’s a more friendly view.
+
+Below it, as secondary detail, the note names the theme they escaped from and lists the rules it broke (its `rules_broken`). The note shows once per escape, isn't a popup, can be dismissed, and is announced to screen readers. *Rejected:* explaining on first visit (owner: "far too easy"); theme names or a badness meter in the bar; rules-broken footers in bad themes; spins that show theme names; a theme index reachable from bad themes.
 
 ## Visits and themes
 
@@ -36,6 +42,10 @@ Settled during planning in October 2026. Each entry says what was decided, why, 
 
 **D14. Launch set:** Under Construction, The Focus Group, Sidebar Hell, Haute and Office Suite. The backlog in [THEMES.md](THEMES.md) is open for riffing and expansion.
 
+**D14a. No in-page citations.** The Focus Group was planned with every design choice footnoted with its study. That explains the joke, so it's out. The studies remain the theme's sources and can appear in its escape note.
+
+**D14b. Device preferences never pick Not Bad.** A reader whose device asks for more contrast still gets a random bad theme (owner: "that's cheating"). Reduced motion gets still versions of the themes, not Not Bad. Only missing JavaScript and printing fall back to Not Bad, because those are technical fallbacks, not preferences.
+
 **D15. Posts can opt out.** `bad: false` keeps a post in Not Bad; `bad: [ids]` limits it to the listed themes. This is for posts where the joke doesn't fit.
 
 ## Stack and hosting
@@ -46,7 +56,7 @@ Settled during planning in October 2026. Each entry says what was decided, why, 
 
 **D18. Netlify**, where the owner's other sites live. The account is on the Free plan for now and may upgrade. Production deploys are batched, because each costs 15 credits from a 300-credit monthly cap.
 
-**D19. Domain.** The blog takes `synchromeshi.com` at launch. The site there now is the owner's Apple Music library listing, their first AI dev project, which they plan to rebuild later. It moves to a subdomain or retires; the owner decides. Posts live under `/posts/<slug>/` to keep the top level free, and the build works under a subpath.
+**D19. Domain.** The blog takes `synchromeshi.com` at launch. The site there now is the owner's Apple Music library listing, their first AI dev project. It retires for now, and the owner may rebuild it later. Its old URLs fall through to the blog's 404 page, so no redirects are needed. Posts live under `/posts/<slug>/` to keep the top level free, and the build works under a subpath.
 
 **D20. Hit counts only; no analytics.** Netlify's built-in analytics keeps 1, 7 or 30 days of history depending on plan, so the blog runs its own counter: a Netlify Function plus Netlify Blobs storing page path and count. Each page is counted once per visit, in every theme. Only paths that exist are accepted. No IPs, cookies or visitor input are stored. Only Under Construction displays the number, as an odometer. *Rejected:* Netlify Real User Monitoring (injects a script), theme-switch beacons, any analytics service.
 
