@@ -55,6 +55,9 @@ test("More bad announces the change without naming the theme", async ({ page }) 
   await page.goto(`${KITCHEN}?bad=${BAD[0].id}`);
   await moreBad(page).click();
   await expect(page.locator(".sr-live")).toHaveText(manifest.copy.changed);
+  // Heard, never seen.
+  const box = await page.locator(".sr-live").boundingBox();
+  expect(box.width * box.height, "the live region is visible").toBeLessThanOrEqual(1);
   for (const t of BAD) await expect(page.locator(".sr-live")).not.toContainText(t.name);
 });
 
