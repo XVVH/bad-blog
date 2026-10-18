@@ -72,7 +72,7 @@
       border-bottom: 1px solid var(--nb-rule);
     }
     .bar-note {
-      max-width: calc(var(--nb-measure) + 2.5rem);
+      max-width: calc(33rem + 2.5rem);
       margin: 0 auto;
       padding: 0 1.25rem;
     }
@@ -235,6 +235,7 @@
       .post-summary-meta { flex-basis: 100%; }
     }
     .term-list { display: grid; gap: 0.3em; }
+    .listing-404 { margin-top: 2em; }
 
     /* The rails become a quiet colophon after the article. */
     .rail { font-size: 0.9em; margin-top: 3em; }

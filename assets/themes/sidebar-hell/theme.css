@@ -1,0 +1,274 @@
+/*
+  Sidebar Hell: widget maximalism, 2006. The article is the least important
+  thing on the page. See docs/themes/sidebar-hell.md. Fix bugs here, never
+  taste (docs/RULES.md).
+*/
+@layer theme {
+  :root[data-theme="sidebar-hell"] {
+    --sh-trebuchet: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", Tahoma, sans-serif;
+    --sh-verdana: Verdana, Geneva, "DejaVu Sans", sans-serif;
+    --sh-georgia: Georgia, "Times New Roman", serif;
+    --sh-lucida: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+    --sh-link: #2255aa;
+
+    color-scheme: light;
+    font: 16px/1.55 var(--sh-georgia);
+    color: #333333;
+    background: repeating-linear-gradient(45deg, #dde6ee 0 2px, #eef3f7 2px 6px);
+
+    body { background: repeating-linear-gradient(45deg, #dde6ee 0 2px, #eef3f7 2px 6px); }
+
+    a { color: var(--sh-link); text-decoration: underline dotted; text-underline-offset: 2px; }
+    a:visited { color: #6a3d9a; }
+    a:hover { color: #cc6600; text-decoration-style: solid; }
+
+    /* The bar, as the Blogger navbar. */
+    .bar { background: linear-gradient(#f2f6fa, #c9d7e5); border-bottom: 1px solid #8aa0b8; }
+    .bar-more {
+      padding: 0 10px 0 30px;
+      font: 700 13px/1 Arial, Helvetica, sans-serif;
+      color: #224466;
+      background: url("../themes/sidebar-hell/img/b.svg") 2px 50% / 22px no-repeat;
+      border: 0;
+      cursor: pointer;
+    }
+    .bar-more::after { content: " »" / ""; }
+    .bar-more:hover { text-decoration: underline; }
+
+    /* The wrapper: 990px, white, on pinstripes. */
+    .page {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      max-width: 990px;
+      margin: 0 auto 24px;
+      padding: 0 8px 12px;
+      background: #ffffff;
+      border: 1px solid #9fb3c8;
+      border-top: 0;
+      box-shadow: 3px 3px 0 #b8c8d8;
+    }
+    .page > * { min-width: 0; align-self: start; }
+
+    /* A Kubrick header: rounded, blue, gradient. */
+    .masthead {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 170px;
+      margin: 10px 0 14px;
+      padding: 30px 10px 0;
+      text-align: center;
+      color: #ffffff;
+      background: linear-gradient(#7aa7d1, #3a6898 70%, #2f5a86);
+      border: 1px solid #2f5a86;
+      border-radius: 10px 10px 0 0;
+    }
+    .site-name { margin: 0; font: 700 clamp(28px, 6vw, 40px)/1.1 var(--sh-trebuchet); text-shadow: 2px 2px 2px #1d3a57; }
+    .site-name a { color: #ffffff; text-decoration: none; }
+    .site-tagline { margin: 6px 0 18px; font: 12px/1.4 var(--sh-verdana); color: #e6eef6; }
+    .site-nav { margin-top: auto; }
+    .site-nav ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 3px; margin: 0; padding: 0; list-style: none; }
+    .site-nav a {
+      display: inline-block;
+      padding: 7px 16px 5px;
+      font: 700 12px/1.2 var(--sh-trebuchet);
+      color: var(--sh-link);
+      text-decoration: none;
+      background: linear-gradient(#ffffff, #dbe6f0);
+      border: 1px solid #7f9cba;
+      border-bottom: 0;
+      border-radius: 6px 6px 0 0;
+    }
+    .site-nav a:hover { background: linear-gradient(#fff6e6, #ffd9a6); color: #994c00; }
+
+    /* The article: the smallest thing here. */
+    .main { padding: 0 6px; }
+    .main:focus { outline: none; }
+    .post { display: flex; flex-direction: column; }
+    .post-head { display: contents; }
+    .post-meta { order: -1; margin: 0 0 2px; font: 700 11px/1.4 var(--sh-verdana); letter-spacing: 1px; text-transform: uppercase; color: #5c5c5c; }
+    .post-reading::before { content: " · " / ""; }
+    .post-title, .listing-title {
+      margin: 0 0 12px;
+      padding: 0 0 4px;
+      font: 700 22px/1.25 var(--sh-trebuchet);
+      color: var(--sh-link);
+      border-bottom: 1px dotted #9fb3c8;
+    }
+    .post-body { order: 1; }
+    .post-tags {
+      order: 2;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0 4px;
+      margin: 14px 0 0;
+      padding: 6px 0 0;
+      font: 11px/1.4 var(--sh-verdana);
+      color: #5c5c5c;
+      border-top: 1px dotted #9fb3c8;
+    }
+    .post-tags::before { content: "Labels:" / ""; font-weight: 700; }
+    .post-tags a { display: inline-block; padding: 5px 0; }
+    .post-tags li:not(:last-child)::after { content: "," / ""; }
+    .post-tags::after { content: "| 0 Comments" / ""; margin-left: 6px; }
+    .post-foot { order: 3; }
+
+    .post-body p { margin: 0 0 1em; }
+    .post-body > :is(ul, ol, dl, blockquote, figure, .table-scroll) { margin: 0 0 1em; }
+    .post-body h2 { margin: 1.4em 0 0.5em; font: 700 18px/1.3 var(--sh-trebuchet); color: #b35900; border-bottom: 1px dotted #b35900; }
+    .post-body h3 { margin: 1.2em 0 0.4em; font: 700 15px/1.3 var(--sh-trebuchet); color: var(--sh-link); }
+    .post-body h4 { margin: 1em 0 0.3em; font: 700 14px/1.3 var(--sh-verdana); text-transform: uppercase; color: #333333; }
+    .h-anchor { display: none; }
+    .post-body ul { list-style: square; }
+    .post-body li:has(> input[type="checkbox"]) { list-style: none; }
+    .post-body blockquote { margin-left: 1.5em; padding: 0 0 0 8px; color: #555555; border-left: 5px solid #dddddd; }
+    .post-body blockquote p:last-child { margin-bottom: 0; }
+    .post-body hr { border: 0; border-top: 1px dashed #cccccc; margin: 1.5em 0; }
+
+    /* Code in a "Code Snippet" box. */
+    .code { margin: 0 0 1em; background: #f8f8e8; border: 1px dashed #999999; }
+    .code::before { content: "Code Snippet" / ""; display: block; padding: 3px 6px; font: 700 11px/1.4 var(--sh-verdana); color: #444444; background: #e6e6cc; border-bottom: 1px dashed #999999; }
+    .code-lang { float: right; margin: -21px 6px 0 0; font: 11px/1.4 var(--sh-verdana); color: #555555; }
+    .code pre { margin: 0; padding: 8px; font: 14px/1.45 Monaco, "Courier New", monospace; color: #222222; background: #f8f8e8; }
+    .code pre code { font: inherit; }
+    .chroma .line.hl { display: block; background: #fff1a8; }
+    .chroma :is(.k, .kc, .kd, .kn, .kp, .kr, .kt, .nt) { color: #000080; font-weight: 700; }
+    .chroma :is(.s, .sa, .sb, .sc, .dl, .sd, .s1, .s2, .se, .sh, .si, .sx, .sr, .ss) { color: #007000; }
+    .chroma :is(.c, .ch, .cm, .c1, .cs, .cp, .cpf) { color: #626262; font-style: italic; }
+    .chroma :is(.m, .mb, .mf, .mh, .mi, .il, .mo) { color: #a00000; }
+    .post-body :not(pre) > code { font: 14px Monaco, "Courier New", monospace; color: #333333; background: #f4f4f4; border: 1px solid #dddddd; padding: 0 2px; }
+
+    .table-scroll table { font: 13px/1.4 var(--sh-verdana); border: 1px solid #b0c4de; }
+    .table-scroll :is(th, td) { padding: 4px 6px; border: 1px solid #ccd6e0; vertical-align: top; }
+    .table-scroll th { background: #e8eef4; text-align: left; }
+    .table-scroll tbody tr:nth-child(even) td { background: #f7f9fb; }
+
+    .fig img { padding: 4px; background: #ffffff; border: 1px solid #cccccc; box-shadow: 2px 2px 3px #999999; }
+    .fig figcaption { margin-top: 6px; font: italic 11px/1.4 var(--sh-verdana); color: #555555; }
+
+    .footnotes { font: 12px/1.5 var(--sh-verdana); }
+
+    .post-nav { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 12px; margin-top: 16px; padding: 6px 0; font: 12px/1.4 var(--sh-verdana); border-top: 1px solid #ccd6e0; }
+    .post-nav p { margin: 0; }
+    .post-nav-newer { margin-left: auto; text-align: right; }
+    .post-nav-label { font-weight: 700; }
+    .post-nav-older .post-nav-label::before { content: "« " / ""; }
+    .post-nav-label::after { content: " Post:" / ""; }
+
+    /* Lists of posts: dated entries. */
+    .post-list { margin: 0; }
+    .post-item { margin: 0 0 16px; padding: 0 0 10px; border-bottom: 1px dotted #9fb3c8; }
+    .post-summary { display: flex; flex-direction: column; }
+    .post-summary-meta { order: -1; margin: 0 0 2px; font: 700 11px/1.4 var(--sh-verdana); letter-spacing: 1px; text-transform: uppercase; color: #5c5c5c; }
+    .post-summary-meta .post-reading { display: none; }
+    .post-summary-title { margin: 0 0 4px; font: 700 18px/1.3 var(--sh-trebuchet); }
+    .post-summary-desc { margin: 0; }
+    .term-list { display: grid; gap: 4px; font: 14px var(--sh-verdana); }
+
+    /* Widgets: a box each, and a different colour each. */
+    .rail { font: 11px/1.5 var(--sh-verdana); color: #333333; }
+    .rail-section { margin: 0 0 12px; background: #f4f8fc; border: 1px solid #b0c4de; }
+    .rail-title {
+      margin: 0;
+      padding: 4px 8px;
+      font: 700 12px/1.3 var(--sh-trebuchet);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-shadow: 1px 1px 0 rgb(0 0 0 / 0.45);
+      border-radius: 5px 5px 0 0;
+    }
+    .rail-related .rail-title { background: linear-gradient(#6fa8dc, #2f6aa3); }
+    .rail-recent .rail-title { background: linear-gradient(#ffb04d, #d46a00); }
+    .rail-tags .rail-title { background: linear-gradient(#8fd46b, #3d8f1f); }
+    .rail-archive .rail-title { background: linear-gradient(#b48ad8, #6a3d9a); }
+    .rail-about .rail-title { background: linear-gradient(#f59ac0, #c2336f); }
+    .rail-feed .rail-title { background: linear-gradient(#5fd0c8, #1f857d); }
+    .sh-calendar .rail-title { background: linear-gradient(#e86a6a, #a32020); }
+    .rail-section > :not(.rail-title) { margin: 0; padding: 6px 8px; }
+    .rail ul { list-style: none; }
+    .rail li { padding: 4px 0; }
+    .rail li::before { content: "» " / ""; color: #d46a00; }
+    .rail-date { display: block; color: #666666; }
+    .tag-cloud { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; }
+    .tag-cloud li::before { content: none; }
+    .tag-cloud [data-count="1"] { font-size: 11px; }
+    .tag-cloud [data-count="2"] { font-size: 13px; }
+    .tag-cloud [data-count="3"] { font-size: 15px; }
+    .tag-cloud [data-count="4"] { font-size: 18px; font-weight: 700; }
+    .tag-cloud li:not([data-count="1"], [data-count="2"], [data-count="3"], [data-count="4"]) { font-size: 22px; font-weight: 700; }
+    .tag-count { font-size: 10px; color: #666666; }
+    .archive-year { padding: 0; }
+    .archive-year::before { content: none; }
+    .archive-year-label { font-weight: 700; }
+    .archive-year-label::before { content: "▼ " / ""; color: #6a3d9a; }
+    .archive-year ul { padding-left: 12px; }
+    .rail-about { overflow: hidden; }
+    .rail-about p:first-of-type::before {
+      content: "";
+      float: left;
+      width: 64px;
+      height: 64px;
+      margin: 0 8px 4px 0;
+      background: url("../themes/sidebar-hell/img/nobody.svg") center / cover;
+      border: 1px solid #9fb3c8;
+    }
+    .rail-feed a { padding-left: 18px; background: url("../themes/sidebar-hell/img/rss.svg") 0 50% / 14px no-repeat; }
+
+    /* The calendar widget, added by theme.js. */
+    .sh-calendar table { width: 100%; font: 11px/1.2 var(--sh-verdana); text-align: center; border-collapse: collapse; }
+    .sh-calendar caption { padding: 2px 0 4px; font-weight: 700; }
+    .sh-calendar th { color: #666666; font-weight: 400; }
+    .sh-calendar td { padding: 3px 0; }
+    .sh-calendar .sh-posted { font-weight: 700; color: #ffffff; background: #d46a00; }
+    .sh-calendar-body { padding: 6px 8px; }
+
+    /* A wall of badges nobody reads. */
+    .deco { display: grid; grid-template-columns: repeat(2, 80px); gap: 4px; justify-content: center; margin: 4px 0 12px; }
+    .deco span { display: flex; width: 80px; height: 15px; overflow: hidden; font: 700 7px/13px var(--sh-verdana); letter-spacing: 0.02em; color: #ffffff; border: 1px solid #333333; }
+    .deco span::before, .deco span::after { display: block; text-align: center; white-space: nowrap; }
+    .deco span::before { flex: 0 0 34px; background: #333333; }
+    .deco span::after { flex: 1 1 auto; }
+    .deco span:nth-child(1)::before { content: "WEB"; }
+    .deco span:nth-child(1)::after { content: "2.0 BETA"; background: #f60; }
+    .deco span:nth-child(2)::before { content: "VALID"; }
+    .deco span:nth-child(2)::after { content: "XHTML-ISH"; background: #690; }
+    .deco span:nth-child(3)::before { content: "CSS"; }
+    .deco span:nth-child(3)::after { content: "INSIDE"; background: #369; }
+    .deco span:nth-child(4)::before { content: "RSS"; }
+    .deco span:nth-child(4)::after { content: "2.0"; background: #f28b1a; }
+    .deco span:nth-child(5)::before { content: "POWERED"; }
+    .deco span:nth-child(5)::after { content: "COFFEE"; background: #c03; }
+    .deco span:nth-child(6)::before { content: "NO"; }
+    .deco span:nth-child(6)::after { content: "TABLES*"; background: #939; }
+    .deco span:nth-child(7)::before { content: "VIEW"; }
+    .deco span:nth-child(7)::after { content: "ANYHOW"; background: #099; }
+    .deco span:nth-child(8)::before { content: "100%"; }
+    .deco span:nth-child(8)::after { content: "HANDMADE"; background: #666; }
+
+    .site-foot { padding: 10px 0 0; font: 11px/1.5 var(--sh-verdana); color: #555555; text-align: center; border-top: 1px solid #ccd6e0; }
+    .site-foot p { margin: 0; }
+    .site-foot-name::after { content: " · Powered by Hugo" / ""; }
+
+    /* Two columns from 700px: the article and one sidebar. */
+    @media (min-width: 700px) {
+      .page { grid-template-columns: minmax(0, 1fr) 260px; grid-template-rows: auto auto auto auto 1fr auto; column-gap: 14px; padding: 0 14px 14px; }
+      .masthead { grid-column: 1 / -1; grid-row: 1; }
+      .main { grid-column: 1; grid-row: 2 / 6; }
+      .rail-a { grid-column: 2; grid-row: 2; }
+      .rail-b { grid-column: 2; grid-row: 3; }
+      .deco { grid-column: 2; grid-row: 4; }
+      .site-foot { grid-column: 1 / -1; grid-row: 6; }
+    }
+
+    /* Three columns from 1000px: the article squeezed in the middle. */
+    @media (min-width: 1000px) {
+      .page { grid-template-columns: 220px minmax(0, 440px) 270px; grid-template-rows: auto auto auto 1fr auto; justify-content: space-between; }
+      .rail-b { grid-column: 1; grid-row: 2; }
+      .deco { grid-column: 1; grid-row: 3; justify-content: start; }
+      .main { grid-column: 2; grid-row: 2 / 5; }
+      .rail-a { grid-column: 3; grid-row: 2 / 5; }
+      .site-foot { grid-column: 1 / -1; grid-row: 5; }
+    }
+  }
+}

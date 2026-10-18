@@ -22,6 +22,8 @@ The escape destination. It must be genuinely good to read, and it must not smell
 
 ## Launch set
 
+Built so far: Under Construction, Sidebar Hell and The Focus Group (phase 1). Haute and Office Suite are next (phase 2). Each built theme's journal is in `docs/themes/`.
+
 ### Under Construction
 - **Failure of taste:** amateur more-is-more. Not "it's old".
 - **Sources:** GeoCities pages, via Olia Lialina's *A Vernacular Web* (2005) and the *One Terabyte of Kilobyte Age* archive.
@@ -47,7 +49,7 @@ The escape destination. It must be genuinely good to read, and it must not smell
   - Tuch et al. (2012): busy, unfamiliar-looking sites are rated least attractive within 50 milliseconds
   - Reinecke & Gajos (2014): how colourfulness and complexity affect appeal
 - **Axes:** palette, structure, graphics. It belongs to no era.
-- **Signature moves:** maximum clutter and a deliberately unfamiliar layout, all in the least-liked palette, delivered deadpan.
+- **Signature moves:** maximum clutter and a deliberately unfamiliar layout, all in the least-liked palette, delivered deadpan. Body text in Courier New, which people describe as plain and dull (Shaikh, Chaparro & Fox, 2006).
 - **Code blocks:** survey-hated token colours that still pass contrast.
 - **Watch for:** body text stays legible on 448C (light text on it passes).
 - **No in-page citations.** Footnoting each design choice with its study would explain the joke (D14a in DECISIONS.md). The studies appear only in the escape note's rules-broken list.
@@ -112,3 +114,5 @@ Open for riffing; add your own. Each needs the same treatment as the launch set 
 - Komar & Melamid, *The People's Choice* (1994–97): <https://diaart.org/program/artistswebprojects/komar-melamid-the-most-wanted-paintings-web-project>
 - Tuch et al. (2012), "The role of visual complexity and prototypicality regarding first impression of websites", *International Journal of Human-Computer Studies* 70(11): <https://research.google/pubs/pub38315/>
 - Reinecke & Gajos (2014), "Quantifying Visual Preferences Around the World", CHI '14: <https://eecs.harvard.edu/~kgajos/papers/2014/reinecke14visual.shtml>
+- Shaikh, Chaparro & Fox (2006), "Perception of fonts: perceived personality traits and uses", *Usability News*: <https://portfolio.erau.edu/en/publications/perception-of-fonts-perceived-personality-traits-and-uses/>
+- Palmer & Schloss (2010), full text: <https://pmc.ncbi.nlm.nih.gov/articles/PMC2889342>

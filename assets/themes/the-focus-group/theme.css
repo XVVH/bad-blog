@@ -1,0 +1,245 @@
+/*
+  The Focus Group: design by survey. Every choice is what research says
+  people like least (sources in theme.yaml; never cited on the page, D14a).
+  See docs/themes/the-focus-group.md. Fix bugs here, never taste.
+*/
+@layer theme {
+  :root[data-theme="the-focus-group"] {
+    --fg-448c: #4a412a;
+    --fg-olive: #6b6118;
+    --fg-mustard: #b8962e;
+    --fg-darkyellow: #8c7a1e;
+    --fg-orange: #e8853a;
+    --fg-maroon: #6b1f2a;
+    --fg-teal: #2e8b83;
+    --fg-peach: #e8a87c;
+    --fg-ink: #ece3c4;
+    --fg-mono: "Courier New", Courier, "Nimbus Mono PS", "Liberation Mono", monospace;
+
+    color-scheme: dark;
+    font: 18px/1.55 var(--fg-mono);
+    color: var(--fg-ink);
+    background: var(--fg-448c);
+
+    /* Office carpet: dots over two clashing hatches. */
+    body {
+      background:
+        radial-gradient(circle, rgb(232 168 124 / 0.35) 1.5px, transparent 2px) 0 0 / 11px 11px,
+        repeating-linear-gradient(-38deg, transparent 0 22px, rgb(140 122 30 / 0.55) 22px 25px),
+        repeating-linear-gradient(61deg, transparent 0 31px, rgb(107 31 42 / 0.5) 31px 33px),
+        var(--fg-448c);
+    }
+
+    a { color: #e3c150; text-decoration: underline; text-decoration-style: wavy; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    a:visited { color: var(--fg-peach); }
+    a:hover { color: #ffffff; }
+
+    .bar { background: var(--fg-maroon); border-bottom: 5px solid var(--fg-darkyellow); }
+    .bar-more {
+      padding: 0 26px 0 18px;
+      font: 700 15px/1 var(--fg-mono);
+      text-transform: uppercase;
+      color: #1e1a10;
+      background: var(--fg-orange);
+      border: 0;
+      clip-path: polygon(0 12%, 100% 0, 88% 100%, 6% 82%);
+      cursor: pointer;
+    }
+    .bar-more:hover { background: #f0a060; }
+
+    /* An unfamiliar layout: name up the left edge, navigation on the right. */
+    .page {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px 12px 30px;
+      overflow-x: clip;
+    }
+    .page > * { min-width: 0; }
+    .masthead { display: contents; }
+    .site-name {
+      margin: 0 0 6px;
+      font: 700 clamp(30px, 9vw, 64px)/0.95 Impact, "Haettenschweiler", "Arial Narrow", sans-serif;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transform: rotate(-3deg);
+      transform-origin: left;
+    }
+    .site-name a {
+      display: inline-block;
+      padding: 4px 10px;
+      color: var(--fg-maroon);
+      text-decoration: none;
+      background: linear-gradient(var(--fg-peach), var(--fg-mustard));
+      border: 3px dotted var(--fg-olive);
+      outline: 3px solid var(--fg-teal);
+    }
+    .site-tagline {
+      justify-self: end;
+      margin: 0 0 14px;
+      padding: 4px 10px;
+      font-size: 14px;
+      color: #1e1a10;
+      background: var(--fg-peach);
+      border: 3px ridge var(--fg-darkyellow);
+    }
+    .site-nav ul { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 0 0 18px; padding: 0; list-style: none; }
+    .site-nav a { display: inline-block; padding: 6px 4px; font-size: 15px; font-weight: 700; text-transform: lowercase; }
+
+    @media (min-width: 900px) {
+      .page { grid-template-columns: 70px minmax(0, 46em) minmax(0, 1fr); column-gap: 34px; }
+      .site-name {
+        grid-column: 1;
+        grid-row: 1 / span 4;
+        align-self: start;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        transform-origin: center;
+        margin: 0;
+        font-size: 64px;
+      }
+      .site-tagline { grid-column: 2; grid-row: 1; }
+      .site-nav { grid-column: 3; grid-row: 1 / span 2; align-self: start; padding-top: 70px; }
+      .site-nav ul { flex-direction: column; align-items: flex-end; gap: 2px; text-align: right; }
+      .main { grid-column: 2; grid-row: 2; }
+      .rail-a { grid-column: 3; grid-row: 3; }
+      .rail-b { grid-column: 2; grid-row: 3; }
+      .site-foot { grid-column: 2 / 4; grid-row: 4; }
+    }
+
+    /* The article: a brown panel in a double olive frame. */
+    .main {
+      padding: 22px clamp(14px, 3vw, 34px) 26px;
+      background: var(--fg-448c);
+      border: 9px double var(--fg-olive);
+      box-shadow: 14px 14px 0 var(--fg-maroon);
+    }
+    .main:focus { outline: none; }
+    .main::before {
+      content: url("../themes/the-focus-group/img/unwanted.svg") / "";
+      float: right;
+      width: clamp(90px, 22vw, 160px);
+      margin: -8px -4px 10px 18px;
+      padding: 6px;
+      background: var(--fg-mustard);
+      border: 4px solid #1e1a10;
+      transform: rotate(7deg);
+    }
+    .main::before { line-height: 0; }
+
+    .post-title, .listing-title {
+      margin: 0 0 10px;
+      font: 700 clamp(26px, 5vw, 40px)/1.15 Impact, "Haettenschweiler", "Arial Narrow", sans-serif;
+      letter-spacing: 0.02em;
+      text-align: right;
+      color: var(--fg-orange);
+    }
+    .post-meta { margin: 0 0 4px; font-size: 15px; text-align: center; color: var(--fg-ink); }
+    .post-reading { display: block; }
+    .post-tags { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 4px 14px; margin: 0 0 18px; font-size: 15px; }
+    .post-tags a { display: inline-block; padding: 4px 0; }
+    .post-head { padding-bottom: 12px; border-bottom: 6px dotted var(--fg-darkyellow); margin-bottom: 18px; }
+
+    /* Every paragraph flagged, to "improve engagement". */
+    .post-body p { margin: 0 0 1.1em; padding: 4px 0 4px 12px; border-left: 6px solid var(--fg-teal); }
+    .post-body p:nth-of-type(3n + 2) { border-left-color: var(--fg-orange); background: rgb(107 97 24 / 0.28); }
+    .post-body p:nth-of-type(3n) { border-left: 6px double var(--fg-mustard); }
+    .post-body :is(li, blockquote, dd, .footnotes) p { padding: 0; border: 0; background: none; }
+    .post-body > :is(ul, ol, dl, blockquote, figure, .table-scroll) { margin: 0 0 1.2em; }
+    .post-body h2 {
+      clear: right;
+      margin: 1.6em 0 0.5em;
+      padding: 2px 10px 2px 0;
+      font: 700 27px/1.2 Impact, "Haettenschweiler", "Arial Narrow", sans-serif;
+      letter-spacing: 0.03em;
+      text-align: right;
+      color: var(--fg-orange);
+      border-right: 14px solid var(--fg-teal);
+    }
+    .post-body h3 { margin: 1.3em 0 0.4em; font-size: 24px; font-weight: 700; text-align: right; color: var(--fg-mustard); text-decoration: underline double; }
+    .post-body h4 { margin: 1.1em 0 0.3em; font-size: 19px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3em; color: var(--fg-peach); }
+    .h-anchor { color: inherit; text-decoration: none; }
+    .post-body strong { color: #ffffff; }
+    .post-body ul { list-style: "▲ "; }
+    .post-body ol { list-style: lower-greek; }
+    .post-body li::marker { color: var(--fg-orange); }
+    .post-body li:has(> input[type="checkbox"]) { list-style: none; }
+    .post-body blockquote { margin-left: 2.5em; margin-right: 0; padding: 10px 14px; background: var(--fg-olive); border: 4px ridge var(--fg-darkyellow); transform: skewX(-3deg); }
+    .post-body blockquote > * { transform: skewX(3deg); }
+    .post-body blockquote p:last-child { margin-bottom: 0; }
+    .post-body hr { height: 14px; margin: 2em 0; border: 0; background: repeating-linear-gradient(90deg, var(--fg-orange) 0 18px, var(--fg-teal) 18px 26px, var(--fg-mustard) 26px 40px); clip-path: polygon(0 40%, 100% 0, 100% 60%, 0 100%); }
+
+    .code { margin: 0 0 1.2em; border: 3px dashed var(--fg-orange); }
+    .code-lang { margin: 0; padding: 2px 8px; font-size: 14px; text-align: right; text-transform: uppercase; color: #1e1a10; background: var(--fg-orange); }
+    .code pre { margin: 0; padding: 10px 12px; font: 16px/1.5 var(--fg-mono); color: var(--fg-ink); background: #3a3320; }
+    .code pre code { font: inherit; }
+    .chroma .line.hl { display: block; background: var(--fg-maroon); }
+    .chroma :is(.k, .kc, .kd, .kn, .kp, .kr, .kt, .nt) { color: #f2a766; font-weight: 700; }
+    .chroma :is(.s, .sa, .sb, .sc, .dl, .sd, .s1, .s2, .se, .sh, .si, .sx, .sr, .ss) { color: #d6cf6e; }
+    .chroma :is(.c, .ch, .cm, .c1, .cs, .cp, .cpf) { color: #c4bb9c; font-style: italic; }
+    .chroma :is(.m, .mb, .mf, .mh, .mi, .il, .mo) { color: var(--fg-peach); }
+    .post-body :not(pre) > code { font: inherit; color: #1e1a10; background: var(--fg-mustard); padding: 0 4px; }
+
+    .table-scroll { border: 5px double var(--fg-peach); }
+    .table-scroll table { font-size: 16px; }
+    .table-scroll :is(th, td) { padding: 4px 10px; border: 1px solid var(--fg-darkyellow); vertical-align: top; }
+    .table-scroll th { color: #1e1a10; background: var(--fg-mustard); text-align: right; }
+    .table-scroll tbody tr:nth-child(odd) td { background: var(--fg-olive); }
+
+    .fig { text-align: center; }
+    .fig img { display: inline-block; border: 10px groove var(--fg-maroon); }
+    .fig figcaption { margin-top: 6px; font-size: 15px; text-align: right; color: var(--fg-ink); }
+
+    .footnotes { font-size: 16px; text-align: justify; border-top: 6px dotted var(--fg-teal); }
+    .footnotes hr { display: none; }
+
+    .post-nav { display: grid; gap: 6px; margin-top: 20px; padding: 10px; font-size: 16px; background: #3a3320; border: 3px groove var(--fg-mustard); }
+    .post-nav p { margin: 0; }
+    .post-nav-newer { text-align: right; }
+    .post-nav-label { text-transform: uppercase; color: var(--fg-peach); }
+    .post-nav-label::after { content: ":" / ""; }
+
+    /* Posts, staggered. */
+    .post-list { margin: 0; }
+    .post-item { margin: 0 0 20px; padding: 10px 12px; border-left: 10px solid var(--fg-teal); background: rgb(107 97 24 / 0.45); }
+    .post-item:nth-child(4n + 2) { margin-left: 12%; border-left-color: var(--fg-orange); }
+    .post-item:nth-child(4n + 3) { margin-left: 4%; margin-right: 10%; border-left-color: var(--fg-maroon); }
+    .post-item:nth-child(4n) { margin-left: 20%; border-left-color: var(--fg-mustard); }
+    .post-summary-title { margin: 0; font: 700 22px/1.2 Impact, "Haettenschweiler", "Arial Narrow", sans-serif; letter-spacing: 0.02em; text-align: right; }
+    .post-summary-meta { margin: 2px 0; font-size: 15px; }
+    .post-summary-desc { margin: 0; }
+    .term-list { display: grid; gap: 4px; }
+
+    /* Side boxes, skewed, in olive and maroon. */
+    .rail { margin-top: 26px; font-size: 15px; }
+    .rail-section { margin: 0 0 14px; padding: 10px 12px; background: var(--fg-olive); border: 4px solid var(--fg-darkyellow); transform: rotate(-1.2deg); }
+    .rail-b .rail-section { background: var(--fg-maroon); border-color: var(--fg-peach); transform: rotate(0.8deg); }
+    .rail-title { margin: 0 0 6px; font: 700 18px/1.2 Impact, "Haettenschweiler", "Arial Narrow", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-peach); }
+    .rail ul { margin: 0; padding: 0; list-style: none; }
+    .rail li { padding: 3px 0; }
+    .rail a { color: var(--fg-ink); }
+    .rail-date { display: block; font-size: 13px; color: var(--fg-ink); }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 0 12px; }
+    .archive-year-label { font-weight: 700; color: var(--fg-peach); }
+
+    .site-foot { margin-top: 20px; font-size: 14px; text-align: right; }
+    .site-foot p { margin: 0; }
+
+    /* Angular shards in the margins, kept inside the page. */
+    .deco { display: block; position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+    .page > :not(.deco), .site-name, .site-tagline, .site-nav { position: relative; z-index: 1; }
+    .deco span { position: absolute; display: block; }
+    .deco span:nth-child(1) { top: 36%; right: 0; width: 70px; height: 110px; background: var(--fg-orange); clip-path: polygon(100% 0, 100% 100%, 0 60%); }
+    .deco span:nth-child(2) { top: 52%; left: 0; width: 40px; height: 160px; background: var(--fg-teal); clip-path: polygon(0 0, 100% 40%, 0 100%); }
+    .deco span:nth-child(3) { top: 47%; right: 0; width: 56px; height: 90px; background: var(--fg-mustard); clip-path: polygon(100% 10%, 0 100%, 100% 80%); }
+    .deco span:nth-child(4) { top: 68%; left: 0; width: 30px; height: 120px; background: var(--fg-peach); clip-path: polygon(0 0, 100% 100%, 0 70%); }
+    .deco span:nth-child(5) { top: 74%; right: 0; width: 44px; height: 140px; background: var(--fg-maroon); clip-path: polygon(100% 0, 0 30%, 100% 100%); }
+    .deco span:nth-child(6) { top: 88%; left: 0; width: 50px; height: 80px; background: var(--fg-darkyellow); clip-path: polygon(0 20%, 100% 0, 0 100%); }
+    .deco span:nth-child(n + 7) { display: none; }
+    @media (max-width: 899px) {
+      .deco span { width: 14px; }
+    }
+  }
+}

@@ -46,4 +46,4 @@ Run `npm test` before every push. More commands, and how everything fits togethe
 
 ## Status
 
-Phase 0 (the plumbing) is built and tested. Not Bad is a proposal awaiting the owner. Next: the phase 1 themes. See [`docs/ROADMAP.md`](docs/ROADMAP.md).
+Phases 0 and 1 are built and tested: the plumbing, Not Bad (a proposal awaiting the owner), and three bad themes (Under Construction, Sidebar Hell, The Focus Group). Next: Haute and Office Suite. See [`docs/ROADMAP.md`](docs/ROADMAP.md).

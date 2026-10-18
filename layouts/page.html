@@ -19,8 +19,9 @@
   </div>
   {{- if $isPost }}
   {{- $posts := (where site.RegularPages "Section" "posts").ByDate }}
-  {{- $older := $posts.Prev . }}
-  {{- $newer := $posts.Next . }}
+  {{- /* On an ascending list, Hugo's Pages.Next is the earlier page. */}}
+  {{- $older := $posts.Next . }}
+  {{- $newer := $posts.Prev . }}
   {{- if or $older $newer }}
   <footer class="post-foot">
     <nav class="post-nav" aria-label="More posts">

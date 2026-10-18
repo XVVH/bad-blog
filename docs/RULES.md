@@ -27,11 +27,13 @@ Breaking any of these is a bug, whatever the theme. Automated tests enforce as m
 - Links can be told apart from body text.
 - Keyboard focus is always visible.
 - The More bad / Less bad bar is always present at the top, reachable by keyboard, with tap targets of at least 44×44px.
+- Every other link and button is a target of at least 24×24px, or spaced so it counts as one (WCAG 2.5.8). Tiny sidebar text needs padding on its links.
 - **Less bad is the fire exit.** It looks the same in every theme: same position (top right), same shape, same words. Themes may not restyle it. More bad can be themed.
-- Accessible names never change: "More bad" and "Less bad", whatever a theme's visual label says.
+- Accessible names never change: "More bad" and "Less bad". A theme may decorate More bad (add "»", an icon, a shape), but its visible text must still read "More bad", because speech-input users say what they see (WCAG 2.5.3, label in name).
 
 **Screen readers**
 - Every theme presents the identical article to assistive technology. All decoration, injected text and fake widgets are `aria-hidden`.
+- Decorative text made with CSS has empty alternative text, `content: "Welcome to " / ""`, so it isn't read aloud.
 - Theme changes are announced in a live region.
 
 **Content and assets**

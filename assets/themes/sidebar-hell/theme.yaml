@@ -1,0 +1,17 @@
+id: sidebar-hell
+name: Sidebar Hell
+front_door: true
+legible: true
+motion: false
+axes: [structure, hierarchy]
+sources:
+  - "Blogger and WordPress blogs, around 2005–2008"
+  - "WordPress's default Kubrick theme"
+rules_broken:
+  - "The article gets the smallest column on its own page."
+  - "Two sidebars of widgets, and every widget a different colour."
+  - "Five typefaces: Trebuchet MS, Verdana, Georgia, Lucida Grande and Arial."
+  - "Eleven-pixel sidebar text, because that's how much fitted."
+  - "A calendar, a tag cloud and a wall of badges nobody reads."
+smell_exemptions:
+  - "Rounded corners and gradients, in the 2006 manner: small top-only radii, hard 1px borders, a different saturated colour per box."

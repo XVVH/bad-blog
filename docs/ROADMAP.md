@@ -24,9 +24,10 @@ The blog works, and is good, before anything is bad.
 
 Chosen for different axes, to stress the markup contract.
 
-- [ ] Under Construction (graphics, type), including the visible hit counter
-- [ ] Sidebar Hell (structure)
-- [ ] The Focus Group (palette, research)
+- [x] Under Construction (graphics, type), including the visible hit counter
+- [x] Sidebar Hell (structure)
+- [x] The Focus Group (palette, research)
+- [ ] The owner reviews all three in the gallery
 
 ## Phase 2: complete the launch set and launch
 

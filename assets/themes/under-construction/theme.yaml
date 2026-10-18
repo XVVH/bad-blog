@@ -1,0 +1,18 @@
+id: under-construction
+name: Under Construction
+front_door: true
+legible: true
+motion: true
+axes: [graphics, type, structure]
+sources:
+  - "GeoCities home pages, via One Terabyte of Kilobyte Age (Olia Lialina and Dragan Espenschied)"
+  - "Olia Lialina, A Vernacular Web (2005)"
+rules_broken:
+  - "A tiled starfield behind everything, because the author could."
+  - "Comic Sans and Times New Roman on the same page, in five colours."
+  - "Every line centred, including the paragraphs."
+  - "Rainbow dividers, red ball bullets, flames and a NEW! sticker that never gets old."
+  - "A permanent “under construction” sign. It will never be finished."
+  - "A visitor counter, displayed with pride."
+smell_exemptions:
+  - "Gradient-clipped text on the site name: per-letter rainbow colouring, the 1997 way, not the indigo-violet smell."

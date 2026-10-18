@@ -1,0 +1,21 @@
+id: the-focus-group
+name: The Focus Group
+front_door: true
+legible: true
+motion: false
+axes: [palette, structure, graphics]
+sources:
+  - "GfK Bluemoon (2012), plain-packaging colour study: Pantone 448C"
+  - "Palmer & Schloss (2010), An ecological valence theory of human color preference, PNAS"
+  - "Komar & Melamid, The People's Choice (1994–97)"
+  - "Tuch et al. (2012), The role of visual complexity and prototypicality regarding first impression of websites, IJHCS"
+  - "Reinecke & Gajos (2014), Quantifying Visual Preferences Around the World, CHI"
+  - "Shaikh, Chaparro & Fox (2006), Perception of fonts: perceived personality traits and uses"
+# The citations live here and in the escape note, never on the page (DECISIONS.md D14a).
+rules_broken:
+  - "Pantone 448C everywhere: the colour a 2012 GfK study for Australia's plain cigarette packs found least appealing."
+  - "Browns and dark yellows, which Palmer & Schloss (2010) found among the least-liked colours."
+  - "A small, angular, warm abstract, like the “Most Unwanted” paintings Komar & Melamid made from opinion polls."
+  - "Maximum clutter in an unfamiliar layout, which Tuch et al. (2012) found makes a site look less attractive within 50 milliseconds."
+  - "Monospaced body text, which people describe as plain and dull (Shaikh, Chaparro & Fox, 2006)."
+smell_exemptions: []

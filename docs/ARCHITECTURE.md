@@ -144,6 +144,8 @@ smell_exemptions: []    # each with a reason
 - `url()` points at files in the theme's own folder, written as `../themes/<id>/…` (they're published next to the CSS bundle), or at `data:` URIs. Never at another site.
 - Font files need a licence file beside them.
 
+Decorative text from CSS uses empty alternative text, `content: "…" / ""`, so screen readers skip it.
+
 If `theme.js` exists, it exports `activate(root, api)` and `deactivate(root)`. `deactivate` removes everything `activate` added. Everything a theme script injects carries a `data-tt-deco` attribute and `aria-hidden="true"`; the floor hides `[data-tt-deco]` in Not Bad, so printing and escaping never show it. `api.hits()` returns the hit count once known, and a `tt:hits` event fires on `document` when it arrives. `api.reducedMotion()` says whether to stay still. Theme scripts may not make network requests.
 
 `layouts/_partials/assets.html` builds everything: one CSS bundle (`_base`, every theme, then `_floor`), each theme's script, the inline boot script and the switcher, plus the manifest the browser reads (`<script type="application/json" id="tt-manifest">`). Production builds leave out `_control`.
@@ -162,7 +164,7 @@ What the floor locks:
 - `html` and `body` take no `filter`, `transform`, `opacity` or blend modes, because those would reach the bar. Put global effects on `.page`.
 - The bar is sticky at the top. Its row (`.bar-inner`) runs edge to edge with fixed padding, so the fire exit sits top right in every theme.
 - `.bar-less` is reset with `all: unset` and restyled completely: a green exit sign (`#00703c`, white bold text, Frutiger/Helvetica/Arial), at least 44×44px, with a yellow-and-black focus ring. Its pseudo-elements and label can't be touched.
-- Both buttons' accessible names are pinned with `aria-label`, so a theme can change More bad's visible label with CSS.
+- Both buttons' accessible names are pinned with `aria-label`. A theme can restyle and decorate More bad, but its visible text must still read "More bad" (WCAG 2.5.3).
 
 ## In the browser
 
