@@ -1,0 +1,19 @@
+{{- /* A list of post summaries. Context: a page collection. */ -}}
+{{- $fresh := now.AddDate 0 0 -14 -}}
+{{- with . }}
+<ol class="post-list">
+  {{- range . }}
+  <li class="post-item"{{ if .Date.After $fresh }} data-fresh{{ end }}>
+    <article class="post-summary">
+      <h2 class="post-summary-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      <p class="post-summary-meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ time.Format ":date_long" .Date }}</time> <span class="post-reading">{{ .ReadingTime }} min read</span></p>
+      {{- with .Description }}
+      <p class="post-summary-desc">{{ . }}</p>
+      {{- end }}
+    </article>
+  </li>
+  {{- end }}
+</ol>
+{{- else }}
+<p class="post-list-empty">Nothing here yet.</p>
+{{- end }}

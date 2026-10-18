@@ -1,0 +1,27 @@
+# Netlify build settings. Security headers aren't here: Hugo generates
+# public/_headers (layouts/home.headers) so the content security policy can
+# carry the inline boot script's hash.
+#
+# Free plan budget (docs/ARCHITECTURE.md): each production deploy costs 15
+# credits from 300 a month, shared by every project on the account. Batch
+# changes before merging to main.
+
+[build]
+  publish = "public"
+  command = "hugo --gc --minify -b $URL && cp public/hits-allowlist.json netlify/functions/hit/allowlist.json"
+
+[build.environment]
+  HUGO_VERSION = "0.167.0"
+  NODE_VERSION = "22"
+  # Only the function's runtime dependency is needed on Netlify; the test
+  # tools are for CI.
+  NPM_FLAGS = "--omit=dev"
+
+[context.deploy-preview]
+  command = "hugo --gc --minify -b $DEPLOY_PRIME_URL && cp public/hits-allowlist.json netlify/functions/hit/allowlist.json"
+
+[context.branch-deploy]
+  command = "hugo --gc --minify -b $DEPLOY_PRIME_URL && cp public/hits-allowlist.json netlify/functions/hit/allowlist.json"
+
+[functions]
+  node_bundler = "esbuild"

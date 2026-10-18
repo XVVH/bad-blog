@@ -1,0 +1,48 @@
+{{- /*
+  Local images become responsive WebP with width and height set, so pages
+  don't jump while loading. Missing alt text warns; CI builds with
+  --panicOnWarning, so it fails there. A Markdown image title becomes a
+  caption. Remote images warn: they send readers to a third party.
+*/ -}}
+{{- $alt := .PlainText -}}
+{{- $where := .PageInner.File.Path -}}
+{{- if not $alt }}{{ warnf "%s: image %q has no alt text" $where .Destination }}{{ end -}}
+{{- $u := urls.Parse .Destination -}}
+{{- $img := "" -}}
+{{- if $u.IsAbs -}}
+  {{- warnf "%s: remote image %q; bring it into the post's folder" $where .Destination -}}
+  {{- $img = printf "<img src=%q alt=%q loading=\"lazy\" decoding=\"async\">" .Destination $alt -}}
+{{- else -}}
+  {{- with or (.PageInner.Resources.Get $u.Path) (resources.Get $u.Path) -}}
+    {{- if in (slice "image/jpeg" "image/png" "image/webp") .MediaType.Type -}}
+      {{- $r := . -}}
+      {{- $widths := slice -}}
+      {{- range slice 480 960 1600 }}{{ if le . $r.Width }}{{ $widths = $widths | append . }}{{ end }}{{ end -}}
+      {{- if not $widths }}{{ $widths = slice $r.Width }}{{ end -}}
+      {{- $srcset := slice -}}
+      {{- $largest := . -}}
+      {{- range $widths -}}
+        {{- $v := $r.Resize (printf "%dx webp" .) -}}
+        {{- $srcset = $srcset | append (printf "%s %dw" $v.RelPermalink $v.Width) -}}
+        {{- $largest = $v -}}
+      {{- end -}}
+      {{- $img = printf "<img src=%q srcset=%q sizes=\"(min-width: 62em) 960px, 100vw\" width=\"%d\" height=\"%d\" alt=%q loading=\"lazy\" decoding=\"async\">" $largest.RelPermalink (delimit $srcset ", ") $largest.Width $largest.Height $alt -}}
+    {{- else -}}
+      {{- $dims := "" -}}
+      {{- if eq .MediaType.Type "image/gif" }}{{ $dims = printf " width=\"%d\" height=\"%d\"" .Width .Height }}{{ end -}}
+      {{- $img = printf "<img src=%q alt=%q%s loading=\"lazy\" decoding=\"async\">" .RelPermalink $alt $dims -}}
+    {{- end -}}
+  {{- else -}}
+    {{- errorf "%s: image %q not found" $where .Destination -}}
+  {{- end -}}
+{{- end -}}
+{{- if .IsBlock -}}
+<figure class="fig">
+  {{ $img | safeHTML }}
+  {{- with .Title }}
+  <figcaption>{{ . }}</figcaption>
+  {{- end }}
+</figure>
+{{- else -}}
+{{ $img | safeHTML }}
+{{- end -}}

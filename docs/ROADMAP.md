@@ -6,18 +6,19 @@ Update this as work lands. Tick boxes; don't delete history.
 
 The blog works, and is good, before anything is bad.
 
-- [ ] Hugo setup: pinned version, works under a subpath
-- [ ] Content model: page bundles, front matter
-- [ ] Render hooks: links (resolve, and fail the build if broken), images, headings; Chroma with classes
-- [ ] The markup contract and shared layout primitives
-- [ ] The `_floor` layer (tier 1 of RULES.md)
-- [ ] The `_control` theme (scaffold and baseline; dev-only)
-- [ ] Not Bad (propose the design to the owner first)
-- [ ] Browser side: head script, bar, More bad deck, Less bad escape and note, keeping the reader's place, persistence
-- [ ] The kitchen-sink post
-- [ ] CI: Playwright and axe matrix; screenshot gallery with the `_control` baseline
-- [ ] `netlify.toml`: Hugo version, headers, cache rules
-- [ ] Hit counter: function and Blobs store
+- [x] Hugo setup: pinned version (0.167.0), works under a subpath
+- [x] Content model: page bundles, front matter, fixture posts in development only
+- [x] Render hooks: links (resolve, and fail the build if broken), images, headings, code blocks, tables; Chroma with classes
+- [x] The markup contract and shared layout primitives
+- [x] The `_floor` layer (tier 1 of RULES.md)
+- [x] The `_control` theme (scaffold and baseline; dev-only)
+- [x] Not Bad, as a proposal for the owner (see `docs/themes/not-bad.md`)
+- [x] Browser side: head script, bar, More bad deck, Less bad escape and note, keeping the reader's place, persistence, blocked-storage fallback, printing
+- [x] The kitchen-sink post
+- [x] CI: theme lint, unit tests, production checks, Playwright and axe matrix, screenshot gallery with the `_control` baseline
+- [x] `netlify.toml` and the generated `_headers`: Hugo version, build commands, CSP with the boot script's hash, cache rules
+- [x] Hit counter: function and Blobs store
+- [ ] Connect the repository to Netlify (the owner; see "Before launch" below)
 
 ## Phase 1: the first three bad themes
 
@@ -43,8 +44,15 @@ Chosen for different axes, to stress the markup contract.
 - [ ] Chaos Mode
 - [ ] Generated (and suitably bad) social preview images
 
+## Before launch (the owner)
+
+- Create a Netlify site from this repository. Netlify reads `netlify.toml`; no other settings are needed.
+- Approve or change Not Bad (`docs/themes/not-bad.md`).
+- Write the about page (`content/about.md`) and the site description (`params.description` in `config/_default/hugo.toml`).
+- Retire the music library site and move `synchromeshi.com` to the blog.
+
 ## Open questions
 
-None open. Not Bad's design will be proposed to the owner before it's built.
+Not Bad's open questions (typeface, indents, dot leaders) are in `docs/themes/not-bad.md`.
 
 Answered (October 2026): the name (D5a), the escape note copy (D9), the music library site (D19), device preferences (D14b), The Focus Group's citations (D14a).

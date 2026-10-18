@@ -1,0 +1,4 @@
+{{- /* Every page path the hit counter accepts. Copied into the function at build. */ -}}
+{{- $paths := slice -}}
+{{- range site.Pages }}{{ $paths = $paths | append .RelPermalink }}{{ end -}}
+{{- $paths | uniq | sort | jsonify -}}

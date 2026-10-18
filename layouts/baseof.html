@@ -1,0 +1,55 @@
+<!doctype html>
+{{- /*
+  The markup contract (docs/ARCHITECTURE.md). Every page type renders this
+  skeleton in every theme. Themes restyle it; they never change it.
+*/ -}}
+{{- $bad := "" -}}
+{{- if isset .Params "bad" -}}
+  {{- with .Params.bad -}}
+    {{- if reflect.IsSlice . }}{{ $bad = delimit . " " }}{{ end -}}
+  {{- else -}}
+    {{- $bad = "off" -}}
+  {{- end -}}
+{{- end }}
+<html lang="{{ site.Language.Locale | default "en" }}" data-theme="not-bad"{{ with $bad }} data-bad="{{ . }}"{{ end }}>
+<head>
+{{ partial "head.html" . }}
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+{{ partial "bar.html" . }}
+<div class="page">
+  <header class="masthead">
+    {{- if .IsHome }}
+    <h1 class="site-name"><a href="{{ "/" | relURL }}">{{ site.Title }}</a></h1>
+    {{- else }}
+    <p class="site-name"><a href="{{ "/" | relURL }}">{{ site.Title }}</a></p>
+    {{- end }}
+    {{- with site.Params.description }}
+    <p class="site-tagline">{{ . }}</p>
+    {{- end }}
+    <nav class="site-nav" aria-label="Site">
+      <ul>
+        <li><a href="{{ "/posts/" | relURL }}">Posts</a></li>
+        <li><a href="{{ "/tags/" | relURL }}">Tags</a></li>
+        <li><a href="{{ "/about/" | relURL }}">About</a></li>
+        <li><a href="{{ "/index.xml" | relURL }}">Feed</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="content" class="main" tabindex="-1">
+    {{- block "main" . }}{{ end }}
+  </main>
+  {{ partial "rails.html" . }}
+  <footer class="site-foot">
+    <p class="site-foot-name">{{ site.Title }}</p>
+    <p class="hits" aria-hidden="true"><span class="hits-count"></span></p>
+  </footer>
+  <div class="deco" aria-hidden="true">{{ range 8 }}<span></span>{{ end }}</div>
+</div>
+<div class="sr-live" aria-live="polite"></div>
+{{- with partialCached "assets.html" . }}
+<script type="module" src="{{ .switcher.RelPermalink }}"></script>
+{{- end }}
+</body>
+</html>

@@ -1,0 +1,69 @@
+{{- /*
+  The rails hold real navigation. Most themes tuck them away; Sidebar Hell
+  lives in them. Nothing here is collapsed, because RULES.md forbids hidden
+  content.
+*/ -}}
+{{- $posts := where site.RegularPages "Section" "posts" -}}
+<aside class="rail rail-a" aria-label="Elsewhere on the site">
+  {{- if and .IsPage (eq .Section "posts") }}
+  {{- $related := first 4 (where (site.RegularPages.Related .) "Section" "posts") }}
+  {{- with $related }}
+  <section class="rail-section rail-related">
+    <h2 class="rail-title">Related posts</h2>
+    <ul>
+      {{- range . }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+  {{- end }}
+  <section class="rail-section rail-recent">
+    <h2 class="rail-title">Recent posts</h2>
+    <ul>
+      {{- range first 5 $posts }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> <time class="rail-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ time.Format ":date_medium" .Date }}</time></li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- with site.Taxonomies.tags }}
+  <section class="rail-section rail-tags">
+    <h2 class="rail-title">Tags</h2>
+    <ul class="tag-cloud">
+      {{- range .ByCount }}
+      <li data-count="{{ .Count }}"><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a> <span class="tag-count">({{ .Count }})</span></li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+  {{- with $posts }}
+  <section class="rail-section rail-archive">
+    <h2 class="rail-title">Archive</h2>
+    <ul class="archive-years">
+      {{- range .GroupByDate "2006" }}
+      <li class="archive-year">
+        <span class="archive-year-label">{{ .Key }}</span>
+        <ul>
+          {{- range .Pages }}
+          <li data-date="{{ .Date.Format "2006-01-02" }}"><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+          {{- end }}
+        </ul>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+</aside>
+<aside class="rail rail-b" aria-label="About this site">
+  {{- with site.GetPage "/about" }}
+  <section class="rail-section rail-about">
+    <h2 class="rail-title">About</h2>
+    {{- with .Description }}<p>{{ . }}</p>{{ end }}
+    <p><a href="{{ .RelPermalink }}">More about {{ site.Title }}</a></p>
+  </section>
+  {{- end }}
+  <section class="rail-section rail-feed">
+    <h2 class="rail-title">Subscribe</h2>
+    <p><a href="{{ "/index.xml" | relURL }}">RSS feed</a></p>
+  </section>
+</aside>

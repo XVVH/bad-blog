@@ -1,0 +1,38 @@
+{{ define "main" }}
+{{- $isPost := eq .Section "posts" }}
+<article class="post{{ if not $isPost }} post-page{{ end }}">
+  <header class="post-head">
+    <h1 class="post-title">{{ .Title }}</h1>
+    {{- if $isPost }}
+    <p class="post-meta"><time class="post-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ time.Format ":date_long" .Date }}</time> <span class="post-reading">{{ .ReadingTime }} min read</span></p>
+    {{- with .GetTerms "tags" }}
+    <ul class="post-tags" aria-label="Tags">
+      {{- range . }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{- end }}
+    </ul>
+    {{- end }}
+    {{- end }}
+  </header>
+  <div class="post-body">
+    {{ partial "content.html" . }}
+  </div>
+  {{- if $isPost }}
+  {{- $posts := (where site.RegularPages "Section" "posts").ByDate }}
+  {{- $older := $posts.Prev . }}
+  {{- $newer := $posts.Next . }}
+  {{- if or $older $newer }}
+  <footer class="post-foot">
+    <nav class="post-nav" aria-label="More posts">
+      {{- with $older }}
+      <p class="post-nav-older"><span class="post-nav-label">Older</span> <a href="{{ .RelPermalink }}" rel="prev">{{ .Title }}</a></p>
+      {{- end }}
+      {{- with $newer }}
+      <p class="post-nav-newer"><span class="post-nav-label">Newer</span> <a href="{{ .RelPermalink }}" rel="next">{{ .Title }}</a></p>
+      {{- end }}
+    </nav>
+  </footer>
+  {{- end }}
+  {{- end }}
+</article>
+{{ end }}

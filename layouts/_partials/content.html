@@ -1,0 +1,8 @@
+{{- /*
+  A page's rendered Markdown, with fixes Goldmark has no render hook for.
+  Task-list checkboxes get an accessible name; they're read-only.
+*/ -}}
+{{- .Content
+  | replaceRE `<input checked="" disabled="" type="checkbox">` `<input checked="" disabled="" type="checkbox" aria-label="Done">`
+  | replaceRE `<input disabled="" type="checkbox">` `<input disabled="" type="checkbox" aria-label="Not done">`
+  | safeHTML -}}

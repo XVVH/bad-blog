@@ -1,0 +1,13 @@
+{{- /*
+  Highlighted at build time with classes, so each theme ships its own token
+  colours. Long lines scroll inside the <pre>, never the page; Chroma makes
+  the <pre> focusable so keyboard users can scroll it.
+*/ -}}
+{{- $lang := .Type -}}
+{{- $result := transform.HighlightCodeBlock . -}}
+<figure class="code" data-lang="{{ $lang | default "text" }}">
+  {{- with $lang }}
+  <figcaption class="code-lang">{{ . }}</figcaption>
+  {{- end }}
+  {{ $result.Wrapped }}
+</figure>

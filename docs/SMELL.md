@@ -36,6 +36,15 @@ What you can see in a screenshot.
 - Testimonial cards, logo strips, FAQ accordions, "Get started" buttons.
 - Code blocks in fake macOS window chrome with traffic-light dots.
 
+## The editorial smell
+
+A second default, which shows up when a model is asked for something "elegant", "warm" or "literary". It's the bigger risk for Not Bad.
+
+- Cream or warm off-white paper (`#faf9f6`, `#f5f1e8` and friends).
+- A display serif for headlines (Fraunces, Instrument Serif, Playfair Display, DM Serif Display) over an Inter or system sans body.
+- One muted terracotta, rust or olive accent.
+- Big italic serif pull quotes, thin rules, generous margins, small-caps eyebrow labels.
+
 ## Deep smell
 
 What survives after the fonts and colours change. It's harder to see, and it's the main reason a "different" design can still smell.

@@ -1,0 +1,77 @@
+# Turrible Takes. The misspelling is intentional; never correct it.
+baseURL = "https://synchromeshi.com/"
+title = "Turrible Takes"
+locale = "en-US"
+enableRobotsTXT = true
+timeZone = "UTC"
+capitalizeListTitles = false
+
+[permalinks.page]
+  posts = "/posts/:contentbasename/"
+
+[taxonomies]
+  tag = "tags"
+
+[services.rss]
+  limit = 20
+
+[markup.goldmark.renderer]
+  unsafe = false
+
+[markup.goldmark.extensions]
+  footnote = true
+  table = true
+  typographer = true
+  linkify = true
+  strikethrough = true
+
+[markup.goldmark.parser]
+  autoHeadingID = true
+  wrapStandAloneImageWithinParagraph = false
+  [markup.goldmark.parser.attribute]
+    block = false
+    title = true
+
+[markup.highlight]
+  noClasses = false
+  codeFences = true
+  guessSyntax = false
+  lineNos = false
+
+[imaging]
+  resampleFilter = "Lanczos"
+  [imaging.webp]
+    quality = 78
+
+# Netlify reads _headers from the publish directory. Generating it lets the
+# content security policy carry the exact hash of the inline boot script.
+[mediaTypes."text/netlify"]
+  delimiter = ""
+
+[outputFormats.headers]
+  mediaType = "text/netlify"
+  baseName = "_headers"
+  isPlainText = true
+  notAlternative = true
+
+# Every countable page path, for the hit counter function's allow-list.
+[outputFormats.hits]
+  mediaType = "application/json"
+  baseName = "hits-allowlist"
+  isPlainText = true
+  notAlternative = true
+
+[outputs]
+  home = ["html", "rss", "headers", "hits"]
+  section = ["html", "rss"]
+  taxonomy = ["html"]
+  term = ["html"]
+
+[params]
+  # Shown in feeds and the masthead. Written by the owner.
+  description = "Long-form writing."
+
+# Hugo's HTML minifier would rewrite the inline boot script and break its
+# hash in the content security policy. js.Build already minifies it.
+[minify]
+  disableJS = true

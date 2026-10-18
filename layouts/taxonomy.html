@@ -1,0 +1,12 @@
+{{ define "main" }}
+<section class="listing listing-taxonomy">
+  <header class="listing-head">
+    <h1 class="listing-title">{{ .Title }}</h1>
+  </header>
+  <ul class="term-list">
+    {{- range .Data.Terms.Alphabetical }}
+    <li data-count="{{ .Count }}"><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a> <span class="tag-count">({{ .Count }})</span></li>
+    {{- end }}
+  </ul>
+</section>
+{{ end }}

@@ -1,0 +1,19 @@
+# Hugo
+/public/
+/resources/_gen/
+/.hugo_build.lock
+/.test-site/
+
+# Generated at build time from public/hits-allowlist.json
+/netlify/functions/hit/allowlist.json
+
+# Node
+node_modules/
+
+# Playwright
+/test-results/
+/playwright-report/
+/gallery/
+
+# Netlify CLI
+.netlify/

@@ -1,0 +1,20 @@
+{{- /*
+  The More bad / Less bad bar. Less bad is the fire exit: its styling lives in
+  the floor layer and no theme may change it. aria-label pins both buttons'
+  accessible names, so themes can change More bad's visible label freely.
+  The escape note is the only place the joke is explained (DECISIONS.md D9).
+*/ -}}
+{{- $copy := hugo.Data.copy -}}
+<div class="bar" role="group" aria-label="Design controls">
+  <div class="bar-inner">
+    <button type="button" class="bar-more" aria-label="More bad"><span class="bar-label">More bad</span></button>
+    <p class="bar-plain" hidden>{{ $copy.stays_plain }}</p>
+    <button type="button" class="bar-less" aria-label="Less bad"><span class="bar-label">Less bad</span></button>
+  </div>
+  <div class="bar-note" hidden tabindex="-1">
+    <p class="bar-note-msg">{{ $copy.escape }}</p>
+    <p class="bar-note-from"></p>
+    <ul class="bar-note-rules"></ul>
+    <button type="button" class="bar-note-dismiss">{{ $copy.dismiss }}</button>
+  </div>
+</div>

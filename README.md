@@ -4,4 +4,9 @@
 
 Built with Hugo, hosted on Netlify. Start with [AGENTS.md](AGENTS.md) and [docs/INTENT.md](docs/INTENT.md).
 
-*Status: planning complete, build not started.*
+*Status: the plumbing is built and tested; the bad themes are next.*
+
+```sh
+npm ci && hugo server   # preview
+npm test                # everything CI runs
+```

@@ -34,6 +34,16 @@ Then, depending on the task:
 - **Record what you learn.** When you design or change a theme, keep its journal in `docs/themes/` current, especially where your first instinct was the smell. That record is the experiment's data.
 - When a decision changes, update `docs/DECISIONS.md`. When work lands, update `docs/ROADMAP.md`. When the build differs from `docs/ARCHITECTURE.md`, fix one of them.
 
+## Working on it
+
+```sh
+npm ci          # test tools and the hit counter's one dependency
+hugo server     # local preview, with fixture posts and _control
+npm test        # lint, unit tests, production checks, browser tests
+```
+
+Run `npm test` before every push. More commands, and how everything fits together, are in [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+
 ## Status
 
-Planning is complete; nothing is built yet. See [`docs/ROADMAP.md`](docs/ROADMAP.md).
+Phase 0 (the plumbing) is built and tested. Not Bad is a proposal awaiting the owner. Next: the phase 1 themes. See [`docs/ROADMAP.md`](docs/ROADMAP.md).

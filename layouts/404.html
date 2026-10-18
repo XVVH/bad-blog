@@ -1,0 +1,12 @@
+{{ define "main" }}
+<article class="post post-page post-404">
+  <header class="post-head">
+    <h1 class="post-title">Not found</h1>
+  </header>
+  <div class="post-body">
+    <p>There’s nothing at this address. It may have moved, or it may never have existed.</p>
+    <p><a href="{{ "/" | relURL }}">Go to the home page</a>, or try one of these:</p>
+    {{ partial "post-list.html" (first 5 (where site.RegularPages "Section" "posts")) }}
+  </div>
+</article>
+{{ end }}

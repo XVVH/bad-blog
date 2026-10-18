@@ -1,0 +1,10 @@
+id: not-bad
+name: Not Bad
+# The escape destination. Never part of the first-visit lottery or the deck.
+front_door: false
+legible: true
+motion: false
+axes: []
+rules_broken: []
+smell_exemptions: []
+# Status: proposed, awaiting the owner's approval. See docs/themes/not-bad.md.

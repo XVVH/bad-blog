@@ -1,0 +1,31 @@
+{{- /*
+  Internal links resolve to the target page's URL; one that doesn't resolve
+  fails the build. External http(s) links get class="ext" and a visually
+  hidden "(external)". No link is ever forced into a new tab.
+*/ -}}
+{{- $u := urls.Parse .Destination -}}
+{{- $href := .Destination -}}
+{{- $ext := false -}}
+{{- if $u.IsAbs -}}
+  {{- $ext = in (slice "http" "https") $u.Scheme -}}
+{{- else if $u.Path -}}
+  {{- $p := $u.Path | strings.TrimSuffix "_index.md" | strings.TrimSuffix "index.md" | strings.TrimSuffix ".md" -}}
+  {{- $p = strings.TrimSuffix "/" $p | default "/" -}}
+  {{- $frag := cond (ne $u.Fragment "") (printf "#%s" $u.Fragment) "" -}}
+  {{- if not (strings.HasPrefix $p "/") }}{{ with .PageInner.File }}{{ $p = path.Join "/" .Dir $p }}{{ end }}{{ end -}}
+  {{- with site.GetPage $p -}}
+    {{- $href = printf "%s%s" .RelPermalink $frag -}}
+  {{- else -}}
+    {{- with .PageInner.Resources.Get $u.Path -}}
+      {{- $href = .RelPermalink -}}
+    {{- else -}}
+      {{- if strings.Contains (path.Base $u.Path) "." | and (not (strings.HasSuffix $u.Path ".md")) -}}
+        {{- $href = $u.Path | relURL -}}
+      {{- else -}}
+        {{- errorf "%s: broken internal link %q" .PageInner.File.Path .Destination -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+<a href="{{ $href }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $ext }} class="ext"{{ end }}>{{ .Text }}{{ if $ext }}<span class="vh"> (external)</span>{{ end }}</a>
+{{- /* chomp */ -}}

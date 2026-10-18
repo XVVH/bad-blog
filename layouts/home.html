@@ -1,0 +1,5 @@
+{{ define "main" }}
+<section class="listing listing-home" aria-label="Posts">
+  {{ partial "post-list.html" (where site.RegularPages "Section" "posts") }}
+</section>
+{{ end }}

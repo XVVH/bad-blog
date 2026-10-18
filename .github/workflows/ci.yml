@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  HUGO_VERSION: "0.167.0"
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install Hugo (pinned, checksum verified)
+        run: |
+          base="https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}"
+          file="hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+          curl -fsSL -o "$RUNNER_TEMP/$file" "$base/$file"
+          curl -fsSL -o "$RUNNER_TEMP/checksums.txt" "$base/hugo_${HUGO_VERSION}_checksums.txt"
+          (cd "$RUNNER_TEMP" && grep " $file\$" checksums.txt | sha256sum -c -)
+          tar -xzf "$RUNNER_TEMP/$file" -C "$RUNNER_TEMP" hugo
+          sudo mv "$RUNNER_TEMP/hugo" /usr/local/bin/hugo
+          hugo version
+
+      - run: npm ci
+
+      - run: npx playwright install --with-deps chromium
+
+      - name: Lint, unit tests, production checks, browser tests
+        run: npm test
+        env:
+          CI: "true"
+
+      - name: Screenshot gallery
+        if: always()
+        run: GALLERY=1 npx playwright test tests/gallery.spec.mjs
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gallery
+          path: gallery/
+          retention-days: 14
+
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7

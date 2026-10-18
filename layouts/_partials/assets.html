@@ -1,0 +1,44 @@
+{{- /*
+  Builds every theme asset once and returns them:
+    css       one stylesheet: base, every shipped theme (each scoped to its
+              own :root[data-theme]), then the floor
+    boot      the inline head script, fingerprinted with sha256 so _headers
+              can allow it by hash
+    switcher  the deferred switcher module
+    themes    the manifest the browser uses
+  _control (dev_only) is left out of production builds entirely.
+*/ -}}
+{{- $prod := hugo.IsProduction -}}
+{{- $themes := slice -}}
+{{- $css := slice (resources.Get "themes/_base/base.css") -}}
+{{- range resources.Match "themes/*/theme.yaml" -}}
+  {{- $t := . | transform.Unmarshal -}}
+  {{- if and $prod $t.dev_only }}{{ continue }}{{ end -}}
+  {{- with resources.Get (printf "themes/%s/theme.css" $t.id) -}}
+    {{- $css = $css | append . -}}
+  {{- else -}}
+    {{- errorf "theme %q has no theme.css" $t.id -}}
+  {{- end -}}
+  {{- $js := "" -}}
+  {{- with resources.Get (printf "themes/%s/theme.js" $t.id) -}}
+    {{- $opts := dict "format" "esm" "minify" true "target" "es2020" "targetPath" (printf "js/themes/%s.js" $t.id) -}}
+    {{- $js = (. | js.Build $opts | fingerprint).RelPermalink -}}
+  {{- end -}}
+  {{- /* Publish the theme's fonts and images next to their CSS references. */ -}}
+  {{- range resources.Match (printf "themes/%s/{fonts,img}/**" $t.id) }}{{ $_ := .RelPermalink }}{{ end -}}
+  {{- $themes = $themes | append (dict
+      "id" $t.id
+      "name" $t.name
+      "front_door" ($t.front_door | default false)
+      "legible" (cond (isset $t "legible") $t.legible true)
+      "motion" ($t.motion | default false)
+      "rules" ($t.rules_broken | default slice)
+      "js" $js) -}}
+{{- end -}}
+{{- $css = $css | append (resources.Get "themes/_floor/floor.css") -}}
+{{- /* Not minified: Hugo's CSS minifier doesn't fully understand native
+       nesting, and Netlify's compression recovers most of the bytes anyway. */ -}}
+{{- $cssOut := $css | resources.Concat "css/site.css" | fingerprint -}}
+{{- $boot := resources.Get "js/boot.js" | js.Build (dict "format" "iife" "minify" true "target" "es2017") | fingerprint "sha256" -}}
+{{- $switcher := resources.Get "js/switcher.js" | js.Build (dict "format" "esm" "minify" true "target" "es2020" "targetPath" "js/switcher.js") | fingerprint -}}
+{{- return dict "css" $cssOut "boot" $boot "switcher" $switcher "themes" $themes -}}

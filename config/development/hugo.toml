@@ -1,0 +1,9 @@
+# Development and test builds add fixture posts (the kitchen sink and a few
+# samples) and the _control theme. Production builds never see either.
+[[module.mounts]]
+  source = "content"
+  target = "content"
+
+[[module.mounts]]
+  source = "fixtures/content"
+  target = "content"

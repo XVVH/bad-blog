@@ -1,0 +1,14 @@
+id: _control
+name: The Control
+# The smell, faithfully (docs/SMELL.md). Dev-only: never shipped, never in a
+# production manifest, never selectable in production. It exists to prove the
+# theme pipeline works and as the baseline every gallery compares against.
+dev_only: true
+front_door: true
+legible: true
+motion: true
+axes: []
+rules_broken:
+  - "None, technically. That's the problem: it's what every AI-built site looks like."
+smell_exemptions:
+  - "All of them. This theme is the smell."
