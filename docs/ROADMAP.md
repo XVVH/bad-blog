@@ -29,6 +29,8 @@ Chosen for different axes, to stress the markup contract.
 - [x] The Focus Group (palette, research)
 - [ ] The owner reviews all three in the gallery
 
+Reviewed in part: Sidebar Hell was a miss (it reads as an ordinary 2006 blog), which led to D23 below.
+
 ## Phase 2: complete the launch set and launch
 
 - [x] Haute
@@ -40,9 +42,22 @@ Chosen for different axes, to stress the markup contract.
 - [ ] The owner reviews Haute and Office Suite in the gallery
 - [ ] Launch: retire the music library site and move `synchromeshi.com` to the blog (see D19 in DECISIONS.md)
 
-## Phase 3 and beyond
+## Phase 3: principle-first themes
 
-- [ ] Backlog themes
+October 2026. Four of the five launch themes turned out to be costumes, recreations of things that already existed, and irony has made that kind of bad look good. Themes now start from a broken design principle (D23), and the owner picks a new launch set (D24).
+
+- [x] Rewrite the method around principles: INTENT.md, the costume test and principles to break in THEMES.md, RULES.md tier 3, the costume smell in SMELL.md, D23 and D24
+- [x] A shortlist of principle-based candidates (THEMES.md)
+- [ ] The owner picks the new launch set. Nothing is built before then.
+- [ ] Build the picks, each from its journal
+- [ ] Haute: rework as Breathing Room, keep or retire
+- [ ] The Focus Group: the owner's review
+- [ ] Retire Under Construction, Sidebar Hell and Office Suite from the rotation once their replacements ship
+- [ ] A new home for the visible hit counter, or none
+
+## Phase 4 and beyond
+
+- [ ] More principle themes (THEMES.md, "More principles")
 - [ ] Relaxed legibility for chosen themes (the owner's call)
 - [ ] Chaos Mode
 - [ ] Generated (and suitably bad) social preview images
@@ -59,9 +74,11 @@ Chosen for different axes, to stress the markup contract.
 For the owner:
 
 - **The top bar** is pinned: the owner is considering reworking it. That includes whether Less bad stays a standard green exit sign, or More bad and Less bad become a matched pair styled by each theme, with the floor locking position, labels, size, contrast and equal weight.
-- **Sidebar Hell** failed the period test (it looks like an ordinary 2006 blog). Rework it, or replace it with an era-less backlog theme?
+- **The new launch set:** which candidates from the shortlist in THEMES.md, and how many? Some combine well as one theme (see "Combining" there).
+- **Haute:** rework as Breathing Room, keep as it is, or retire? (`docs/themes/haute.md`)
+- **The visible hit counter** lives only in Under Construction, which retires. The Small Print would show it, enormous; otherwise it goes unseen (the counting carries on).
+- **The top bar rework** and the new themes may affect each other, since More bad is themeable.
 
 - Not Bad: typeface, first-line indents, dot leaders (`docs/themes/not-bad.md`).
-- Haute: handsome at first sight, bad only in use. Bad enough? (`docs/themes/haute.md`)
 
-Answered (October 2026): the name (D5a), the escape note copy (D9), the music library site (D19), device preferences (D14b), The Focus Group's citations (D14a).
+Answered (October 2026): the name (D5a), the escape note copy (D9), the music library site (D19), device preferences (D14b), The Focus Group's citations (D14a), how themes are made (D23), Sidebar Hell (retires, D24).

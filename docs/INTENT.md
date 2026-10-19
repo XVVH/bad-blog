@@ -14,24 +14,27 @@ This blog is a counterweight to that, and an experiment:
 
 The model building the themes is the subject of the experiment as much as its author. Its instincts pull toward the smell, or toward "designer-bad": an ironic, curated ugliness that is really just another kind of good taste. Each theme is an attempt to get past both. The theme journals in [`themes/`](themes/) are the record of how that went.
 
+The first launch set found a third pull. Asked for bad design, the model reached for things already known to be bad and recreated them: GeoCities, a 2006 blog, PowerPoint 2003, a luxury fashion site. Those are memories, not taste. And irony has turned most of them good: people now use GeoCities and XTREME styling for fun. So since October 2026, a theme starts from a design principle and breaks it, rather than from something that already exists ([DECISIONS.md](DECISIONS.md) D23).
+
 ## What "bad" means here
 
-Bad means bad **taste**, along four axes:
+Bad means a **design principle broken on purpose**, along three axes:
 
-- **Palette:** clashing, drab, garish or survey-hated colours.
-- **Typography:** wrong fonts, too many fonts, fonts for the wrong job.
-- **Structure:** broken hierarchy, odd layouts, too much or too little on the page.
-- **Graphics:** kitsch, overdecoration, tired trends, unconvincing materials.
+- **Structure:** grouping, alignment, hierarchy, density, rhythm.
+- **Typography:** scale, spacing, texture, consistency, fit for the job.
+- **Colour:** value, proportion, harmony, meaning.
+
+Each principle has a source (Gestalt psychology, book typography, colour theory, preference research), and each theme follows a wrong version of one, faithfully. [THEMES.md](THEMES.md) lists principles to break. Graphics and decoration are no longer an axis of their own: kitsch, clip art and tired trends are costume material. A theme can still draw things when its principle calls for them.
 
 Bad does **not** mean:
 
 - **Hostile.** Nothing tricks, traps, blocks or pesters the reader. No popups, autoplay, scroll hijacking or fake buttons.
-- **Old for its own sake.** A theme can borrow an era, but "it's old" is never the joke. The joke is a specific failure of taste: amateur more-is-more, pretension mistaken for elegance, design by committee.
+- **A costume.** Recreating an era, a site, a program or a genre is retrieval, and the reader is in on the joke. If a reader could name what a theme imitates, it's a costume ([THEMES.md](THEMES.md#the-costume-test)). That includes "it's old": age is never the joke.
 - **Badly engineered.** Every page works on desktop and mobile, loads fast, and is accessible and readable. The engineering should be better than the designs deserve.
 
 ## Principles
 
-1. **Bad taste, executed well.** Each theme commits fully to one recognizable aesthetic failure, grounded in real examples or research, and is built with care. Half-hearted bad just looks like a broken site.
+1. **Bad taste, executed well.** Each theme takes one design principle, with a source, and follows the wrong version of it on every surface, built with care. Half-hearted bad just looks like a broken site. The wrong rule is followed sincerely: bad taste believes in itself, where designer-bad is making a point.
 2. **The badness is only a skin.** One Markdown file becomes one clean, semantic HTML page; themes are stylesheets laid over it (the CSS Zen Garden approach). Feed readers, print, search engines and screen readers get the plain writing.
 3. **The reader can always leave.** Less bad is an escape hatch, there to save the reader in the second before they close the tab. It's instant, keeps their place, and sticks.
 4. **Don't explain the joke.** A reader discovers it, or escapes from it. The explanation is the reward for escaping, never the welcome.

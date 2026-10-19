@@ -11,10 +11,11 @@ Breaking any of these is a bug, whatever the theme. Automated tests enforce as m
 - No hidden or truncated article content. Anything collapsible is open by default.
 - Zoom is never disabled, text is always selectable, and 200% zoom still works.
 
-**Motion**
+**Motion and patterns**
 - Nothing flashes more than 3 times a second (WCAG 2.3.1).
 - Anything that moves for more than 5 seconds can be paused (WCAG 2.2.2).
 - With `prefers-reduced-motion: reduce`, nothing moves at all.
+- No large areas of fine, high-contrast stripes, checks or other repeating patterns. Static patterns like these cause pattern glare and headaches, and can trigger seizures in pattern-sensitive readers (Arnold Wilkins, *Visual Stress*, 1995). Flat fields of colour, even clashing ones, are fine.
 
 **Hostility**
 - No popups, modals, overlays, interstitials or "click to enter" pages.
@@ -59,10 +60,11 @@ Every theme in the launch set is ugly but easy to read. A later phase may relax 
 
 Everything else: palette, fonts, hierarchy, layout, decoration, kitsch, the copy in headings and buttons, the 404 page, too much or too little of anything. The tone has no limits beyond tier 1.
 
-Two specific invitations:
+Three specific invitations:
 
+- **Start from a principle, not a reference** (DECISIONS.md D23). A theme follows a wrong version of a real design principle. Recreating an era, site or program is a costume ([THEMES.md](THEMES.md#the-costume-test)).
 - **Break the systems, not just the surface.** The deep smell ([SMELL.md](SMELL.md#deep-smell)) lives in consistent spacing scales, one radius everywhere, symmetric balance and restraint. Inconsistency is a legitimate design move here.
-- **Be specific.** "Ugly" isn't a brief. "A 2006 Blogger sidebar with a tag cloud, a calendar widget and a wall of 88×31 badges" is.
+- **Be specific.** "Ugly" isn't a brief, and nor is "like GeoCities". "The more two things belong together, the further apart they go, so every heading sits with the section before it" is.
 
 ## When fixing things
 

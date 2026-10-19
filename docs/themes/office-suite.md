@@ -1,6 +1,6 @@
 # Office Suite: design journal
 
-*Status: built in phase 2. Awaiting the owner's review in the gallery.*
+*Status: built in phase 2 and live. **A costume** (D23): it recreates PowerPoint 2003. It leaves the rotation when the principle-first set ships (D24).*
 
 ## Brief
 
@@ -42,5 +42,6 @@
 
 - 2026-10-18: First version.
 - 2026-10-18: The slide didn't grow with its content. A stray `min-height: 0` cancels `aspect-ratio`'s grow-to-fit, so on phones the text spilled out over the sidebars. Fixed, and `tests/floor.spec.mjs` now checks that article content stays inside the article and that the page's regions never overlap. More bad also wrapped onto four lines beside the menu text; the floor now stops More bad shrinking.
+- 2026-10-19: **Ruled a costume.** Every move in the brief is a recreation (WordArt, border art, the slide sorter, the status bar), so the joke is recognizing Office. Its engineering lessons stay: slides that grow with their content, and the floor tests for spill and overlap.
 
 ## Open questions

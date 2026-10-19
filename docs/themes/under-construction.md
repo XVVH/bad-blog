@@ -1,6 +1,6 @@
 # Under Construction: design journal
 
-*Status: built in phase 1. Awaiting the owner's review in the gallery.*
+*Status: built in phase 1 and live. **A costume** (D23): it recreates GeoCities, a style irony has since made fun to look at. It leaves the rotation when the principle-first set ships (D24).*
 
 ## Brief
 
@@ -55,5 +55,6 @@ What I reached for first:
 
 - 2026-10-18: First version.
 - 2026-10-18: Fixes from the tests and the gallery. The marquee moved the whole box and pushed the page sideways mid-animation; it now animates `text-indent` inside its own box. Underlined `h2`s made links inside headings indistinguishable (axe `link-in-text-block`), so the underline became a shadow. Sidebar links got padding for 24px targets. The construction sign's icons moved into its background. All tests pass.
+- 2026-10-19: **Ruled a costume.** The owner: GeoCities and XTREME "have become funny to use ironically", so recreating them has swung from bad to good(ish). The brief said "not 'it's old'", and it wasn't, but the joke still depended on the reader recognizing GeoCities. Its one principle-shaped idea, more-is-more with no system, lives on in Variety Pack's "never use the same style twice". Its visible hit counter needs a new home (ROADMAP.md).
 
 ## Open questions

@@ -1,6 +1,6 @@
 # The Focus Group: design journal
 
-*Status: built in phase 1. Awaiting the owner's review in the gallery.*
+*Status: built in phase 1 and live. Passes the costume test (D23): it starts from research, not an interface, and belongs to no era. Proposed to stay in the principle-first set, subject to the owner's review (D24).*
 
 ## Brief
 
@@ -53,5 +53,6 @@
 
 - 2026-10-18: First version. On first look it read as a stylish, earthy zine: Impact headings, a cool vertical name with a drop shadow, a tidy hatch. That's designer-bad, and close to the editorial smell. Made it clunkier: the name in a gradient label with a dotted border and a teal outline, office-carpet dots over the hatching, and every paragraph flagged with a different coloured bar "to improve engagement".
 - 2026-10-18: Fixed a contrast failure in the post navigation (mustard on olive); its panel is now dark brown. All floor, legibility and accessibility tests pass.
+- 2026-10-19: **Costume test: passes.** Its wrong rule is "do whatever research says people like least", which is principle-first in all but name, and nothing in it can be named as an imitation. It was the only one of the first five that started from somewhere other than a reference. Worth rechecking at review: the "office-carpet dots" lean on a reference, if a faint one.
 
 ## Open questions

@@ -1,6 +1,6 @@
 # Sidebar Hell: design journal
 
-*Status: built in phase 1. **The owner judged it a miss** (see the log): it reads as an ordinary blog of its era, not as bad taste. To be reworked or replaced.*
+*Status: built in phase 1 and live. **The owner judged it a miss** (see the log): it reads as an ordinary blog of its era, not as bad taste. **A costume** (D23); it leaves the rotation when the principle-first set ships (D24).*
 
 ## Brief
 
@@ -45,9 +45,10 @@
 ## Log
 
 - 2026-10-18: First version.
-- 2026-10-19: **Owner review: a miss.** "It just looks like any blog site of that era", which breaks a founding rule: old doesn't mean bad (INTENT.md). The diagnosis: it copied the *default* taste of 2006, WordPress's Kubrick theme and Blogger's standard templates, which people at the time considered clean and normal. That makes it 2006's version of the smell, closer to `_control` than to a failure of taste. The "article is the least important thing" idea was the real failure, but it was played at period-accurate strength, so nothing about it read as wrong. Lesson for every era-based theme: it must copy what was considered bad taste *in its own time*. GeoCities was garish in 1998 and WordArt was mocked in 2003; Kubrick was the default. Options: push the structural failure far past anything a real blog did, so it can't pass as a period piece, or retire it to the backlog and replace it with an era-less theme.
 - 2026-10-18: Fixes from the tests. The "Labels:" links were too small to tap (24px minimum), and inline code in a heading inherited the orange heading colour and failed contrast. The badges were rebuilt as proper two-part 80×15 badges. All tests pass.
+- 2026-10-19: **Owner review: a miss.** "It just looks like any blog site of that era", which breaks a founding rule: old doesn't mean bad (INTENT.md). The diagnosis: it copied the *default* taste of 2006, WordPress's Kubrick theme and Blogger's standard templates, which people at the time considered clean and normal. That makes it 2006's version of the smell, closer to `_control` than to a failure of taste. The "article is the least important thing" idea was the real failure, but it was played at period-accurate strength, so nothing about it read as wrong. Lesson for every era-based theme: it must copy what was considered bad taste *in its own time*. GeoCities was garish in 1998 and WordArt was mocked in 2003; Kubrick was the default. Options: push the structural failure far past anything a real blog did, so it can't pass as a period piece, or retire it to the backlog and replace it with an era-less theme.
+- 2026-10-19: **Retires** (D24). The owner's next point went further than the period test: GeoCities and XTREME have become ironically good, and every theme so far was built from something that already existed. So the fix isn't a better era; it's no era. Themes now start from a broken principle (D23). Sidebar Hell's real idea, "the article is the least important thing on the page", is a hierarchy failure, and The Small Print on the shortlist takes it on without the 2006 costume.
 
 ## Open questions
 
-- Rework (exaggerate the structural failure past period accuracy) or replace with an era-less theme from the backlog? The owner decides.
+- ~~Rework or replace?~~ Answered: it retires (D24).

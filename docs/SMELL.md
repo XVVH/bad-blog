@@ -45,6 +45,18 @@ A second default, which shows up when a model is asked for something "elegant", 
 - One muted terracotta, rust or olive accent.
 - Big italic serif pull quotes, thin rules, generous margins, small-caps eyebrow labels.
 
+## The costume smell
+
+A third default, which shows up when a model is asked for *bad* design. It's the one this project fell into first.
+
+- **Retrieval:** recreating a style already known to be bad. GeoCities and "under construction" signs, Comic Sans and Papyrus, MySpace glitter, WordArt and clip art, the 2006 blog sidebar, Web 2.0 gloss and BETA badges, skeuomorphic leather, Y2K chrome, vaporwave, XTREME energy-drink angles.
+- **Designer-bad:** the fashionable version. Web brutalism (raw HTML, system monospace, hard black borders), deconstructivist layouts after *Ray Gun* and Emigre, acid graphics, anti-design, maximalist collage. These break real principles, but expressively, and they're good taste now.
+- **The tell:** you can name it. If a brief contains a decade, a product, a site or a genre, it's a costume.
+
+The first launch set is the record. Four of its five themes were costumes: Under Construction (GeoCities), Sidebar Hell (2006 blogs), Office Suite (PowerPoint 2003) and Haute (luxury fashion sites). Only The Focus Group started somewhere else, from research. The pull didn't stop when the method changed. Drafting the principle shortlist, the first image for each candidate was still a reference: a ransom note for "never repeat a style", a 1960s psychedelic poster for equal-value colour, brutalist numerals for inverted hierarchy, Brat green for a page in one loud colour. Each is now named in its candidate's "Watch for".
+
+The costume smell is newer than the first launch set, which still carries it; those themes retire when their replacements ship (DECISIONS.md D24). The check is the costume test in [THEMES.md](THEMES.md#the-costume-test). The lint can't see it.
+
 ## Deep smell
 
 What survives after the fonts and colours change. It's harder to see, and it's the main reason a "different" design can still smell.
@@ -90,4 +102,5 @@ It is excluded from production builds. It never appears in the rotation, can't b
   - `copy`: phrases from the copy smell
 
   A theme that uses one on purpose, for its own reasons, lists it in `theme.yaml` as `smell_exemptions: ["<rule-id>: <reason>"]`. The lint can't see the deep smell.
+- **Costume:** the costume test in [THEMES.md](THEMES.md#the-costume-test), on the brief and on the first screenshots.
 - **Human:** the owner reviews the screenshot gallery. That is the real test.
