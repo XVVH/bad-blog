@@ -4,6 +4,7 @@
 
 1. **Start from something real:** a specific movement, era, site, document type or study. Never just "make it ugly". Collect references before writing any CSS.
 2. **Name the failure of taste** in one sentence, for example "amateur more-is-more" or "pretension mistaken for elegance".
+   - **The period test**, for any theme that borrows an era: was this considered bad taste *in its own time*? If a screenshot could pass for an ordinary site from that era, it's nostalgia, not bad taste, and it breaks "old doesn't mean bad" (INTENT.md). Copy what people mocked then, not what was normal. Sidebar Hell failed this test (see its journal).
 3. **Pick the axes** it attacks (palette, type, structure, graphics) and its signature moves.
 4. **Plan every surface:** post, home, tag list, about, 404, code blocks, images, links, footnotes, and the More bad button.
 5. **Write the journal first**, as `docs/themes/<id>.md` from [`themes/_TEMPLATE.md`](themes/_TEMPLATE.md), then build.
@@ -55,6 +56,7 @@ All five are built: Under Construction, Sidebar Hell and The Focus Group (phase 
 - **No in-page citations.** Footnoting each design choice with its study would explain the joke (D14a in DECISIONS.md). The studies appear only in the escape note's rules-broken list.
 
 ### Sidebar Hell
+*Owner review: a miss. It reads as an ordinary 2006 blog, not bad taste. To be reworked or replaced; see `docs/themes/sidebar-hell.md`.*
 - **Failure of taste:** widget maximalism. The article is the least important thing on the page.
 - **Sources:** Blogger and WordPress blogs around 2006.
 - **Axes:** structure, hierarchy.

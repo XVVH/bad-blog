@@ -56,7 +56,10 @@ Chosen for different axes, to stress the markup contract.
 
 ## Open questions
 
-For the owner, from the theme journals:
+For the owner:
+
+- **The top bar** is pinned: the owner is considering reworking it. That includes whether Less bad stays a standard green exit sign, or More bad and Less bad become a matched pair styled by each theme, with the floor locking position, labels, size, contrast and equal weight.
+- **Sidebar Hell** failed the period test (it looks like an ordinary 2006 blog). Rework it, or replace it with an era-less backlog theme?
 
 - Not Bad: typeface, first-line indents, dot leaders (`docs/themes/not-bad.md`).
 - Haute: handsome at first sight, bad only in use. Bad enough? (`docs/themes/haute.md`)
