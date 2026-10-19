@@ -1,6 +1,6 @@
 # Under Construction: design journal
 
-*Status: built in phase 1 and live. **A costume** (D23): it recreates GeoCities, a style irony has since made fun to look at. It leaves the rotation when the principle-first set ships (D24).*
+*Status: **retired** in phase 3 (D24a). A costume (D23): it recreated GeoCities, a style irony has since made fun to look at. Its code is in git history.*
 
 ## Brief
 

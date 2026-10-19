@@ -1,0 +1,15 @@
+id: variety-pack
+name: Variety Pack
+front_door: true
+legible: true
+motion: false
+axes: [structure, type, colour]
+sources:
+  - "Max Wertheimer (1923), Untersuchungen zur Lehre von der Gestalt II: the law of similarity"
+  - "Design systems, and the deep smell they produce (docs/SMELL.md)"
+rules_broken:
+  - "Consistency: things of the same kind should look alike, so you can tell what each one is (Wertheimer's law of similarity, 1923). Here nothing looks like anything else, so nothing looks like it belongs."
+  - "Every paragraph has its own typeface, size, colour, alignment and width. Each one changes on its own cycle, so the same combination never comes round twice in a post."
+  - "Every heading, list, quote, table, code block and picture is styled unlike any other; every CSS border style is used exactly once."
+  - "Spacing from no scale at all: 3, 7, 13, 41 and 58 pixels, and no two gaps alike."
+smell_exemptions: []

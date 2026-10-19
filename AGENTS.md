@@ -29,7 +29,7 @@ Then, depending on the task:
 - **Fix bugs, never fix taste.** In a bad theme, the ugliness is the spec. Breaking `docs/RULES.md` is a bug; a clashing colour is not.
 - **Don't explain the joke** in any bad theme: no theme names, badness meters, "this is intentional" notes or rules-broken lists. Those live only in Not Bad, after an escape.
 - **Don't restyle the Less bad button.** It is the fire exit: same place, shape and words in every theme.
-- **Don't build costumes**, and don't build new themes until the owner has picked from the shortlist in `docs/THEMES.md` (D24).
+- **Don't build costumes.** A new theme starts as a brief for the owner, from a principle, before any CSS (`docs/THEMES.md`).
 - **Never ship `_control`** (the default-smell baseline), and never copy anything from it into a theme or Not Bad.
 - **Don't add third-party requests**, trackers, comment systems, forms, or anything that accepts visitor input. The hit counter is the one server-side piece; see `docs/ARCHITECTURE.md`.
 - **Batch production deploys.** On Netlify's Free plan each production deploy costs 15 credits, out of 300 a month shared by every project on the account.
@@ -48,4 +48,4 @@ Run `npm test` before every push. More commands, and how everything fits togethe
 
 ## Status
 
-Phases 0–2 are built, tested and live: the plumbing, Not Bad (a proposal awaiting the owner), and five themes (Under Construction, Sidebar Hell, The Focus Group, Haute, Office Suite). Four of those five turned out to be costumes, so the method is now principle-first (D23), and the owner is choosing a new launch set from the shortlist in [`docs/THEMES.md`](docs/THEMES.md) (phase 3). The current five stay live until their replacements ship. See [`docs/ROADMAP.md`](docs/ROADMAP.md).
+Phases 0–3 are built and tested. The plumbing and Not Bad (a proposal awaiting the owner) are from phases 0–2. Phase 3 replaced the first five themes, four of which turned out to be costumes, with a principle-first launch set the owner picked (D23, D24a): Keep Your Distance, The Small Print, Variety Pack, Vibrant, Breathing Room and The Focus Group. The live site still runs the first set until the next production deploy. See [`docs/ROADMAP.md`](docs/ROADMAP.md).

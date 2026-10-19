@@ -1,0 +1,15 @@
+id: the-small-print
+name: The Small Print
+front_door: true
+legible: true
+motion: false
+axes: [structure, type]
+sources:
+  - "Adam Wathan and Steve Schoger (2018), Refactoring UI: visual hierarchy"
+  - "Robert Bringhurst, The Elements of Typographic Style: the typographic scale"
+rules_broken:
+  - "Visual hierarchy: size, weight and contrast should tell you what matters most (Refactoring UI). Here they tell you the opposite. The article is the smallest, greyest text on the site, at exactly the legibility minimum."
+  - "The copyright line is the biggest thing on every page, followed by the hit count, the reading time and the date."
+  - "Heading levels run backwards, so a fourth-level heading outranks a second-level one."
+  - "Captions are bigger than headings, footnotes bigger than the article, bullets bigger than their items, and pictures shrunk to a third of the page under captions twice the size of the text."
+smell_exemptions: []

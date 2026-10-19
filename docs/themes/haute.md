@@ -1,6 +1,6 @@
 # Haute: design journal
 
-*Status: built in phase 2 and live. **A costume around a real mechanism** (D23): it recreates luxury fashion sites, but its badness comes from a principle, too much white space. Rework it as Breathing Room (THEMES.md), keep it or retire it: the owner's call (D24).*
+*Status: **retired** in phase 3 (D24a). A costume around a real mechanism (D23): it recreated luxury fashion sites, but its badness came from a principle, too much white space. The owner chose to retire it and build Breathing Room from scratch rather than rework it. Its code is in git history.*
 
 ## Brief
 
@@ -49,4 +49,4 @@
 
 ## Open questions
 
-- Bad enough at first sight? (See the log.)
+- ~~Bad enough at first sight?~~ Answered: it retired (D24a).

@@ -1,6 +1,6 @@
 # The Focus Group: design journal
 
-*Status: built in phase 1 and live. Passes the costume test (D23): it starts from research, not an interface, and belongs to no era. Proposed to stay in the principle-first set, subject to the owner's review (D24).*
+*Status: built in phase 1 and live. Passes the costume test (D23): it starts from research, not an interface, and belongs to no era. Kept in the principle-first launch set (D24a), subject to the owner's review.*
 
 ## Brief
 

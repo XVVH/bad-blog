@@ -1,0 +1,153 @@
+/*
+  The Small Print: the less something matters, the bigger it is (visual
+  hierarchy, inverted). The article sits exactly on the legibility floor;
+  everything else is scaled up from there.
+  See docs/themes/the-small-print.md. Fix bugs here, never taste.
+*/
+@layer theme {
+  :root[data-theme="the-small-print"] {
+    /* The more something matters, the quieter its colour. */
+    --sp-quiet: #666666;
+    --sp-mid: #5a5047;
+    --sp-loud: #4b4034;
+    --sp-paper: #ffffff;
+    --sp-face: Georgia, "Gelasio", "DejaVu Serif", serif;
+
+    color-scheme: light;
+    background: var(--sp-paper);
+    color: var(--sp-quiet);
+    font: 16px/1.55 var(--sp-face);
+    font-variant-numeric: oldstyle-nums;
+
+    body { background: var(--sp-paper); }
+
+    a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+    a:hover { text-decoration-thickness: 2px; }
+
+    /* More bad matters most, so it's the smallest thing in the bar. */
+    .bar { background: var(--sp-paper); }
+    .bar-more {
+      padding: 0 8px;
+      font: 400 13px/1 var(--sp-face);
+      color: var(--sp-quiet);
+      background: none;
+      border: 1px solid var(--sp-quiet);
+      cursor: pointer;
+    }
+
+    .page { max-width: 1240px; margin: 0 auto; padding: 0 16px 24px; }
+    .main:focus { outline: none; }
+
+    /* The furniture: the site's name, its tagline and its navigation, all
+       far bigger than anything they point to. */
+    .masthead { margin: 8px 0 28px; }
+    .site-name { margin: 0; font: 400 clamp(40px, 9vw, 124px)/1.2 var(--sp-face); color: var(--sp-mid); }
+    .site-name a { text-decoration: none; }
+    .site-tagline { margin: 4px 0 10px; font: 400 clamp(46px, 11vw, 150px)/1.2 var(--sp-face); color: var(--sp-loud); }
+    .site-nav ul { display: flex; flex-wrap: wrap; gap: 0 0.6em; margin: 0; padding: 0; list-style: none; }
+    .site-nav a { font: 400 clamp(30px, 5.5vw, 72px)/1.2 var(--sp-face); color: var(--sp-mid); }
+
+    /* The post: a small title, then an enormous date and an even bigger
+       reading time. */
+    .post-head { margin: 0 0 24px; }
+    .post-title, .listing-title { max-width: 36em; margin: 0 0 6px; font: 400 17px/1.4 var(--sp-face); color: var(--sp-quiet); }
+    .post-meta { margin: 0; color: var(--sp-loud); }
+    .post-date { display: block; font: 400 clamp(54px, 13vw, 190px)/1.2 var(--sp-face); }
+    .post-reading { display: block; font: 400 clamp(64px, 15.5vw, 228px)/1.2 var(--sp-face); }
+    .post-tags { display: flex; flex-wrap: wrap; gap: 0 0.5em; margin: 8px 0 0; padding: 0; font: 400 clamp(30px, 6vw, 84px)/1.2 var(--sp-face); color: var(--sp-mid); }
+
+    .post-body { max-width: 36em; }
+    .post-body > * { margin: 0 0 1em; }
+    .post-body strong { font-weight: 700; }
+
+    /* Headings, backwards: the deeper the level, the bigger and bolder. */
+    .post-body h2 { margin: 1.6em 0 0.4em; font: 400 19px/1.3 var(--sp-face); color: var(--sp-quiet); }
+    .post-body h3 { margin: 1.3em 0 0.3em; font: 400 25px/1.2 var(--sp-face); color: var(--sp-mid); }
+    .post-body :is(h4, h5, h6) { margin: 1.1em 0 0.3em; font: 700 34px/1.1 var(--sp-face); color: var(--sp-loud); }
+    .h-anchor { font-size: 2.2em; line-height: 0.5; color: var(--sp-loud); text-decoration: none; }
+
+    /* List bullets and numbers bigger than their items. */
+    .post-body :is(ul, ol) { padding-left: 2.6em; }
+    .post-body li::marker { font-size: 2.4em; color: var(--sp-loud); }
+    .post-body li:has(> input[type="checkbox"]) { list-style: none; }
+    .post-body dt { font: 700 30px/1.2 var(--sp-face); color: var(--sp-loud); }
+    .post-body dd { margin: 0 0 0.6em 1.5em; }
+
+    .post-body blockquote { margin: 0 0 1em; padding: 0 0 0 1em; font-size: 21px; color: var(--sp-mid); border-left: 1px solid var(--sp-quiet); }
+    .post-body blockquote blockquote { font-size: 1.25em; }
+
+    /* A thematic break, as a slab. */
+    .post-body hr { height: 64px; margin: 1.4em 0; border: 0; background: var(--sp-loud); }
+
+    /* Code at the floor; its language label towering over it. */
+    .code-lang { margin: 0; font: 400 clamp(44px, 9vw, 96px)/1.2 var(--sp-face); color: var(--sp-loud); }
+    .code pre { margin: 0; padding: 6px 0 6px 12px; font: 16px/1.5 "Courier New", Courier, "Nimbus Mono PS", monospace; color: var(--sp-quiet); background: none; border-left: 1px solid var(--sp-quiet); }
+    .code pre code { font: inherit; }
+    .chroma .line.hl { display: block; background: #f2efe9; }
+    .chroma :is(.k, .kc, .kd, .kn, .kp, .kr, .kt, .nt) { color: var(--sp-loud); }
+    .chroma :is(.s, .sa, .sb, .sc, .dl, .sd, .s1, .s2, .se, .sh, .si, .sx, .sr, .ss) { color: #5c5a2e; }
+    .chroma :is(.c, .ch, .cm, .c1, .cs, .cp, .cpf) { font-style: italic; }
+    .post-body :not(pre) > code { font: 15px "Courier New", Courier, "Nimbus Mono PS", monospace; }
+
+    /* Tables: headers bigger than the data they label. */
+    .table-scroll table { font-size: 16px; }
+    .table-scroll :is(th, td) { padding: 4px 14px 4px 0; vertical-align: bottom; text-align: left; border-bottom: 1px solid #d6d6d6; }
+    .table-scroll th { font: 700 24px/1.1 var(--sp-face); color: var(--sp-loud); }
+    .table-scroll .align-right { text-align: right; }
+    .table-scroll .align-center { text-align: center; }
+
+    /* Pictures shrunk; captions enlarged. */
+    .fig img { width: 34%; }
+    .fig figcaption { margin-top: 8px; font: 400 clamp(28px, 4.4vw, 40px)/1.2 var(--sp-face); color: var(--sp-loud); }
+
+    /* Footnotes bigger than the article, and their markers bigger still. */
+    .post-body sup { font-size: 2.4em; line-height: 0; vertical-align: -0.1em; }
+    .post-body sup a { text-decoration: none; color: var(--sp-loud); }
+    .footnotes { font-size: 25px; line-height: 1.35; color: var(--sp-mid); }
+    .footnotes hr { display: none; }
+    .footnotes ol { padding-left: 1.6em; }
+
+    /* Older and newer: giant labels, little titles. */
+    .post-foot { margin-top: 28px; }
+    .post-nav p { margin: 0 0 12px; }
+    .post-nav-label { display: block; font: 400 clamp(48px, 10vw, 140px)/1.2 var(--sp-face); color: var(--sp-loud); }
+
+    /* Post lists: a giant date and a bigger reading time, with a little
+       title and summary between them. */
+    .post-list { margin: 0; }
+    .post-item { margin: 0 0 36px; }
+    .post-summary { display: flex; flex-direction: column; }
+    .post-summary-title { order: 2; max-width: 36em; margin: 4px 0; font: 400 17px/1.4 var(--sp-face); }
+    .post-summary-meta { display: contents; color: var(--sp-loud); }
+    .post-summary-meta time { order: 1; font: 400 clamp(48px, 11vw, 160px)/1.2 var(--sp-face); }
+    .post-summary-meta .post-reading { order: 4; font: 400 clamp(56px, 13vw, 190px)/1.2 var(--sp-face); }
+    .post-summary-desc { order: 3; max-width: 36em; margin: 0 0 4px; }
+    .post-list-empty { font-size: 16px; }
+
+    /* Tags: little names, giant counts. */
+    .term-list { display: grid; gap: 4px; margin: 0; padding: 0; }
+    .term-list a { display: inline-block; padding: 4px 0; }
+    .tag-count { font: 400 clamp(40px, 8vw, 96px)/1.2 var(--sp-face); color: var(--sp-loud); }
+
+    /* The rails: giant headings over small links. */
+    .rail { margin-top: 32px; }
+    .rail-section { margin: 0 0 24px; }
+    .rail-title { margin: 0 0 6px; font: 400 clamp(36px, 7vw, 92px)/1.2 var(--sp-face); color: var(--sp-loud); }
+    .rail ul { margin: 0; padding: 0; list-style: none; }
+    .rail li { padding: 2px 0; }
+    .rail a { display: inline-block; padding: 3px 0; }
+    .rail-date { font: 700 26px/1.2 var(--sp-face); color: var(--sp-mid); }
+    .rail p { margin: 0 0 6px; }
+    .archive-year-label { display: block; font: 400 clamp(44px, 8vw, 104px)/1.2 var(--sp-face); color: var(--sp-mid); }
+
+    /* The footer: the least important line on the site, so the biggest. */
+    .site-foot { margin-top: 40px; color: var(--sp-loud); }
+    .site-foot p { margin: 0; }
+    .site-foot-name { font: 400 clamp(64px, 18.5vw, 300px)/1.2 var(--sp-face); }
+    .site-foot-name::before { content: "© " / ""; }
+    .hits { display: block; font: 400 clamp(52px, 15vw, 240px)/1.2 var(--sp-face); color: var(--sp-mid); }
+    .hits:has(.hits-count:empty) { display: none; }
+    .hits-count::after { content: " visits" / ""; }
+    .site-foot-designs { font-size: 16px; }
+  }
+}

@@ -55,7 +55,7 @@ A third default, which shows up when a model is asked for *bad* design. It's the
 
 The first launch set is the record. Four of its five themes were costumes: Under Construction (GeoCities), Sidebar Hell (2006 blogs), Office Suite (PowerPoint 2003) and Haute (luxury fashion sites). Only The Focus Group started somewhere else, from research. The pull didn't stop when the method changed. Drafting the principle shortlist, the first image for each candidate was still a reference: a ransom note for "never repeat a style", a 1960s psychedelic poster for equal-value colour, brutalist numerals for inverted hierarchy, Brat green for a page in one loud colour. Each is now named in its candidate's "Watch for".
 
-The costume smell is newer than the first launch set, which still carries it; those themes retire when their replacements ship (DECISIONS.md D24). The check is the costume test in [THEMES.md](THEMES.md#the-costume-test). The lint can't see it.
+The costume smell was named after the first launch set was built; its four costumes retired in phase 3 (DECISIONS.md D24a). The check is the costume test in [THEMES.md](THEMES.md#the-costume-test). The lint can't see it.
 
 ## Deep smell
 

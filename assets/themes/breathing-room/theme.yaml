@@ -1,0 +1,16 @@
+id: breathing-room
+name: Breathing Room
+front_door: true
+legible: true
+motion: false
+axes: [structure, colour, type]
+sources:
+  - "Adam Wathan and Steve Schoger (2018), Refactoring UI: start with too much white space, then remove it"
+  - "Johannes Itten (1961), The Art of Color: the contrast of extension"
+  - "The 60-30-10 rule of interior design"
+rules_broken:
+  - "White space: good layouts start with too much and take some away (Refactoring UI). This one never took any away. Every paragraph gets a screen to itself."
+  - "Capitals spaced so far apart the words come apart, because space between letters is white space too."
+  - "Proportion: loud colours belong in small doses and quiet ones in large (Johannes Itten's contrast of extension; the 60-30-10 rule). Here the loudest orange has the whole page, with a pink that doesn't go with it."
+  - "Emphasis by taking colour away: everything that matters, from the headings and links to More bad, is beige."
+smell_exemptions: []

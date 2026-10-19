@@ -1,0 +1,169 @@
+/*
+  Vibrant: contrast comes from hue, never from lightness (Albers' value
+  contrast, inverted). Every colour is the most saturated sRGB allows at
+  CIELAB L* 58, so every pair of fields meets at equal value and the edge
+  vibrates. Black text is the one value contrast on the page.
+  See docs/themes/vibrant.md. Fix bugs here, never taste.
+*/
+@layer theme {
+  :root[data-theme="vibrant"] {
+    --v-red: #fc494c;
+    --v-vermilion: #fc4c13;
+    --v-ochre: #d96e0a;
+    --v-olive: #8d910c;
+    --v-green: #24a10c;
+    --v-jade: #13a054;
+    --v-teal: #149d8a;
+    --v-cyan: #1698b3;
+    --v-blue: #1a90e6;
+    --v-periwinkle: #4688fb;
+    --v-violet: #857afb;
+    --v-purple: #bc5ffb;
+    --v-magenta: #f419ea;
+    --v-pink: #fc2eb4;
+    --v-ink: #000000;
+    --v-face: "Trebuchet MS", "Fira Sans", "DejaVu Sans", sans-serif;
+
+    color-scheme: light;
+    background: var(--v-green);
+    color: var(--v-ink);
+    font: 18px/1.65 var(--v-face);
+
+    body { background: var(--v-green); }
+    ::selection { color: var(--v-ink); background: var(--v-cyan); }
+
+    a { color: var(--v-ink); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.18em; }
+    a:hover { background: var(--v-periwinkle); }
+
+    .bar { background: var(--v-magenta); border-bottom: 10px solid var(--v-olive); }
+    .bar-more {
+      padding: 0 16px;
+      font: 700 16px/1 var(--v-face);
+      color: var(--v-ink);
+      background: var(--v-ochre);
+      border: 6px solid var(--v-blue);
+      cursor: pointer;
+    }
+    .bar-more:hover { background: var(--v-vermilion); }
+
+    .page { max-width: 46em; margin: 0 auto; padding: 22px 12px 40px; }
+
+    .masthead { margin: 0 0 22px; padding: 14px 18px; background: var(--v-vermilion); border-bottom: 14px solid var(--v-cyan); }
+    .site-name { margin: 0; font: 700 34px/1.15 var(--v-face); }
+    .site-name a { text-decoration: none; }
+    .site-tagline { display: inline-block; margin: 6px 0 10px; padding: 2px 10px; background: var(--v-blue); }
+    .site-nav ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 0; padding: 0; list-style: none; }
+    .site-nav a { display: inline-block; padding: 4px 12px; font-weight: 700; background: var(--v-jade); }
+    .site-nav li:nth-child(even) a { background: var(--v-purple); }
+
+    /* The article: a red field, framed in teal, its complement. */
+    .main { padding: 0 0 18px; background: var(--v-red); border: 16px solid var(--v-teal); }
+    .main:focus { outline: none; }
+    .post-head, .listing-head { margin: 0 0 18px; padding: 16px 20px; background: var(--v-blue); border-bottom: 12px solid var(--v-ochre); }
+    .post-title, .listing-title { margin: 0 0 8px; font: 700 32px/1.2 var(--v-face); }
+    .post-meta { margin: 0 0 8px; }
+    .post-meta time { padding: 2px 8px; background: var(--v-olive); }
+    .post-reading { margin-left: 8px; padding: 2px 8px; background: var(--v-violet); }
+    .post-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; }
+    .post-tags a { display: inline-block; padding: 2px 10px; background: var(--v-magenta); }
+    .post-tags li:nth-child(3n + 2) a { background: var(--v-green); }
+    .post-tags li:nth-child(3n) a { background: var(--v-ochre); }
+
+    .post-body { padding: 0 20px; }
+    .post-body > * { margin: 0 0 1em; }
+
+    /* Hierarchy by hue: headings are bands, never darker type. */
+    .post-body h2 { margin: 1.4em -20px 0.7em; padding: 8px 20px; font: 700 26px/1.25 var(--v-face); background: var(--v-teal); border-left: 18px solid var(--v-pink); }
+    .post-body h3 { margin: 1.2em 0 0.6em; padding: 6px 14px; font: 700 22px/1.3 var(--v-face); background: var(--v-green); border-right: 18px solid var(--v-magenta); }
+    .post-body :is(h4, h5, h6) { margin: 1em 0 0.5em; padding: 4px 12px; font: 700 19px/1.35 var(--v-face); background: var(--v-olive); border-bottom: 8px solid var(--v-violet); }
+    .h-anchor { text-decoration: none; }
+
+    .post-body :is(ul, ol) { padding-left: 1.6em; }
+    .post-body li { margin: 0 0 0.3em; }
+    .post-body li::marker { color: var(--v-ink); }
+    .post-body li:has(> input[type="checkbox"]) { list-style: none; }
+    .post-body dl { padding: 10px 14px; background: var(--v-ochre); border-left: 14px solid var(--v-blue); }
+    .post-body dt { font-weight: 700; }
+    .post-body dd { margin: 0 0 0.4em 1.4em; }
+
+    .post-body blockquote { margin-left: 0; margin-right: 0; padding: 12px 18px; background: var(--v-blue); border-left: 16px solid var(--v-ochre); }
+    .post-body blockquote blockquote { margin-top: 0.6em; background: var(--v-purple); border-left-color: var(--v-olive); }
+    .post-body blockquote p { margin: 0 0 0.6em; }
+    .post-body blockquote p:last-child { margin-bottom: 0; }
+
+    /* A thematic break: two colours meeting edge to edge. */
+    .post-body hr { height: 28px; margin: 1.6em 0; border: 0; background: linear-gradient(90deg, var(--v-magenta) 0 50%, var(--v-green) 50% 100%); }
+
+    /* Code: a violet field in an olive frame. Every token is black; the
+       highlighting is in chips behind them, all at the same value. */
+    .code { margin: 0 0 1.2em; background: var(--v-violet); border: 12px solid var(--v-olive); }
+    .code-lang { margin: 0; padding: 2px 12px; font: 700 15px/1.6 var(--v-face); text-transform: uppercase; background: var(--v-pink); }
+    .code pre { margin: 0; padding: 12px 14px; font: 16px/1.75 "Courier New", Courier, "Nimbus Mono PS", monospace; color: var(--v-ink); background: none; }
+    .code pre code { font: inherit; }
+    .chroma .line.hl { display: block; background: var(--v-cyan); }
+    .chroma :is(.k, .kc, .kd, .kn, .kp, .kr, .kt, .nt) { background: var(--v-green); }
+    .chroma :is(.s, .sa, .sb, .sc, .dl, .sd, .s1, .s2, .se, .sh, .si, .sx, .sr, .ss) { background: var(--v-ochre); }
+    .chroma :is(.c, .ch, .cm, .c1, .cs, .cp, .cpf) { font-style: italic; background: var(--v-periwinkle); }
+    .chroma :is(.m, .mb, .mf, .mh, .mi, .il, .mo) { background: var(--v-pink); }
+    .chroma :is(.nf, .nc, .na) { background: var(--v-teal); }
+    .post-body :not(pre) > code { padding: 0 4px; font: 0.95em "Courier New", Courier, monospace; background: var(--v-teal); }
+
+    /* Tables: rows alternating between two equal-value hues, each row tall
+       enough that it's a field, not a stripe. */
+    .table-scroll { border: 10px solid var(--v-blue); }
+    .table-scroll table { font-size: 16px; }
+    .table-scroll :is(th, td) { padding: 8px 12px; vertical-align: top; text-align: left; }
+    .table-scroll th { background: var(--v-magenta); }
+    .table-scroll tbody tr:nth-child(odd) td { background: var(--v-green); }
+    .table-scroll tbody tr:nth-child(even) td { background: var(--v-pink); }
+    .table-scroll .align-right { text-align: right; }
+    .table-scroll .align-center { text-align: center; }
+
+    .fig img { border: 14px solid var(--v-teal); }
+    .fig figcaption { padding: 6px 12px; background: var(--v-ochre); }
+
+    .post-body sup a { padding: 0 3px; background: var(--v-cyan); text-decoration: none; }
+    .footnotes { padding: 12px 18px; font-size: 16px; background: var(--v-periwinkle); border-top: 12px solid var(--v-vermilion); }
+    .footnotes hr { display: none; }
+
+    .post-foot { margin: 18px 20px 0; }
+    .post-nav { display: grid; gap: 8px; }
+    .post-nav p { margin: 0; padding: 8px 12px; background: var(--v-periwinkle); border-left: 12px solid var(--v-ochre); }
+    .post-nav-label { font-weight: 700; margin-right: 6px; }
+
+    /* Lists of posts: each a field of its own hue, framed in its complement. */
+    .post-list { margin: 0; padding: 0 20px 4px; }
+    .post-item { margin: 0 0 16px; padding: 12px 16px; background: var(--v-blue); border: 12px solid var(--v-ochre); }
+    .post-item:nth-child(4n + 2) { background: var(--v-magenta); border-color: var(--v-green); }
+    .post-item:nth-child(4n + 3) { background: var(--v-olive); border-color: var(--v-violet); }
+    .post-item:nth-child(4n) { background: var(--v-teal); border-color: var(--v-red); }
+    .post-summary-title { margin: 0 0 4px; font: 700 23px/1.25 var(--v-face); }
+    .post-summary-meta { margin: 0 0 4px; font-size: 16px; }
+    .post-summary-desc { margin: 0; }
+    .post-list-empty { padding: 0 20px; }
+    .listing-404 { margin-top: 18px; padding-top: 18px; background: var(--v-red); }
+
+    .term-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0 20px; }
+    .term-list li { padding: 4px 10px; background: var(--v-jade); }
+    .term-list li:nth-child(3n + 2) { background: var(--v-purple); }
+    .term-list li:nth-child(3n) { background: var(--v-ochre); }
+    .term-list a { display: inline-block; padding: 2px 0; }
+
+    .rail { margin-top: 22px; padding: 14px 18px; font-size: 16px; }
+    .rail-a { background: var(--v-olive); border: 14px solid var(--v-violet); }
+    .rail-b { background: var(--v-cyan); border: 14px solid var(--v-vermilion); }
+    .rail-section { margin: 0 0 14px; }
+    .rail-title { margin: 0 0 6px; padding: 2px 10px; font: 700 19px/1.3 var(--v-face); background: var(--v-pink); display: inline-block; }
+    .rail-b .rail-title { background: var(--v-ochre); }
+    .rail ul { margin: 0; padding: 0; list-style: none; }
+    .rail li { padding: 2px 0; }
+    .rail a { display: inline-block; padding: 3px 0; }
+    .rail p { margin: 0 0 6px; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+    .archive-year-label { font-weight: 700; }
+
+    .site-foot { margin-top: 22px; padding: 12px 18px; font-size: 16px; background: var(--v-pink); border-top: 14px solid var(--v-jade); }
+    .site-foot p { margin: 0; }
+    .site-foot-name { font-weight: 700; }
+  }
+}

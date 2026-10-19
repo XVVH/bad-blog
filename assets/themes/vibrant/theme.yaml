@@ -1,0 +1,14 @@
+id: vibrant
+name: Vibrant
+front_door: true
+legible: true
+motion: false
+axes: [colour, structure]
+sources:
+  - "Josef Albers (1963), Interaction of Color"
+rules_broken:
+  - "Value contrast: edges, shapes and text are seen through differences in lightness, not hue (Josef Albers, Interaction of Color, 1963). Every colour here has exactly the same lightness, so nothing stands out from anything else."
+  - "Complementary colours at equal lightness make the edge between them vibrate, so every field here is framed in its complement: red against teal, green against magenta, blue against orange."
+  - "Headings are shown by changing colour, never by being darker, and code is highlighted with chips of colour behind black text."
+  - "No greys, no white and no black, except the words. They're the only thing on the page with any contrast at all."
+smell_exemptions: []

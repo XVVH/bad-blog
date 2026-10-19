@@ -69,13 +69,25 @@ The escape destination. It must be genuinely good to read, and it must not smell
 - It hosts the escape note and the theme index (`/designs/`), the only places themes are named and explained.
 - **Its design hasn't been chosen yet.** Propose one to the owner before building it.
 
-## Shortlist (for the owner to pick from)
+## The launch set
 
-*Drafted October 2026. Nothing here is built. Names are working names, seen by readers only after an escape. Each candidate has its principle and source, the wrong rule, what the rule does to the page, how it stays legible, what to watch for, and a line of what its escape note might say.*
+Picked by the owner from the shortlist below (D24a) and built in phase 3. Each has a journal in [`themes/`](themes/) with its full brief, first instincts and log; its escape-note text is `rules_broken` in its `theme.yaml`. The theme index at `/designs/` lists them, from Not Bad only.
 
-A launch set of four or five, across the three axes, would replace the current five (D24). Candidates can be combined where one principle doesn't fill a theme.
+| Theme | Principle broken (source) | The wrong rule |
+|---|---|---|
+| [Keep Your Distance](themes/keep-your-distance.md) | Proximity, similarity and common region (Wertheimer, 1923; Palmer, 1992) | Things that belong together are kept apart, in space and in style. |
+| [The Small Print](themes/the-small-print.md) | Hierarchy (*Refactoring UI*; Bringhurst) | The less something matters, the bigger it is. |
+| [Variety Pack](themes/variety-pack.md) | Consistency and similarity (Wertheimer, 1923) | Never use the same style twice. |
+| [Vibrant](themes/vibrant.md) | Value contrast (Albers, 1963) | Contrast comes from hue, never from lightness. |
+| [Breathing Room](themes/breathing-room.md) | White space (*Refactoring UI*) and proportion (Itten, 1961; the 60-30-10 rule) | Never remove any white space; the loudest colour gets the most room, and what matters is beige. |
+| [The Focus Group](themes/the-focus-group.md) | Colour preference and visual complexity (GfK, 2012; Palmer & Schloss, 2010; Tuch et al., 2012) | Do whatever research says people like least. |
+
+## The shortlist (October 2026)
+
+*Kept as drafted, as the record of what the owner chose from. Where a built theme differs, its journal is right and this is history. Each candidate has its principle and source, the wrong rule, what the rule does to the page, how it stays legible, what to watch for, and a line of what its escape note might say.*
 
 ### Keep Your Distance (structure)
+*Picked and built.*
 - **Principle:** proximity and similarity, the first of Wertheimer's laws of grouping (1923). Things that sit close together, or look alike, are seen as belonging together. Every layout leans on this: a heading sits nearer the text it introduces than the text before it, and a caption hugs its picture.
 - **Wrong rule:** things that belong together are kept apart, in space and in style; things that don't are brought together.
 - **On the page:**
@@ -89,6 +101,7 @@ A launch set of four or five, across the three axes, would replace the current f
 - **Escape note:** "Proximity (Wertheimer, 1923): things near each other look like they belong together. Every heading here sits with the section before it."
 
 ### The Small Print (structure)
+*Picked and built.*
 - **Principle:** hierarchy. Size, weight and position rank importance, so the eye meets the title first and the small print last (*Refactoring UI*; Bringhurst's scale).
 - **Wrong rule:** the less something matters, the bigger it is.
 - **On the page:**
@@ -102,6 +115,7 @@ A launch set of four or five, across the three axes, would replace the current f
 - **Escape note:** "Hierarchy: size should say what matters. Here it says the opposite. The copyright line is the biggest thing on the site, and the article the smallest."
 
 ### Variety Pack (structure and type)
+*Picked and built.*
 - **Principle:** consistency, and Wertheimer's similarity again: things of the same kind should look the same. Design systems exist to enforce it, and it's the engine of the deep smell (one spacing scale, one radius, one accent).
 - **Wrong rule:** never use the same style twice.
 - **On the page:**
@@ -115,6 +129,7 @@ A launch set of four or five, across the three axes, would replace the current f
 - **Escape note:** "Consistency: things of the same kind should look alike. Here nothing looks like anything else, so nothing looks like it belongs."
 
 ### Fully Justified (type)
+*Back burner, with the owner's twist below.*
 - **Principle:** typographic colour. A well-set paragraph is an even grey, which needs even word spaces and untouched lowercase (Bringhurst; Goudy's sheep). Butterick: indents or space between paragraphs, never both.
 - **Wrong rule:** if text looks cramped, add space everywhere, and make every line reach both margins.
 - **On the page:**
@@ -124,9 +139,11 @@ A launch set of four or five, across the three axes, would replace the current f
   - Double line spacing, with paragraphs both indented and spaced.
 - **Legibility:** letterspacing stays within the 0.12em that WCAG 1.4.12 asks every site to survive, and line spacing only ever goes up. Ugly, not unreadable.
 - **Watch for:** the quietest candidate. At a glance it could pass for a badly set school essay, which is a costume. The stretched last lines and spread headings have to carry it, and it likely needs a colour principle beside it.
+- **Back burner** (D24a), with the owner's twist: justify everything into one narrow middle slice of the page, a fixed strip far narrower than the screen, so every line, heading, caption and table is forced into it while the rest of the page stays empty. Narrow justified columns are where rivers and stretched lines are worst.
 - **Escape note:** "Typographic colour: a good paragraph is an even grey. These force every line to both edges and put extra space between every letter and word."
 
-### Breathing Room (structure; Haute, reworked)
+### Breathing Room (structure)
+*Picked and built new, combined with Pop of Colour; Haute retired rather than being reworked.*
 - **Principle:** white space. *Refactoring UI*: start with too much white space, then remove it. Generous white space is also the deep smell's default answer.
 - **Wrong rule:** never remove it.
 - **On the page:** Haute's mechanism without the fashion house. One paragraph per screen, margins that take most of a desktop screen, capitals tracked until words come apart, the title alone on its own screen, a short post fifteen screens long. No black and gold, no Bodoni, no French, no "plates".
@@ -135,17 +152,19 @@ A launch set of four or five, across the three axes, would replace the current f
 - **Escape note:** "White space: good layouts start with too much and take some away. This one never took any away."
 
 ### Vibrant (colour)
+*Picked and built.*
 - **Principle:** value contrast. Edges and text are seen through differences in lightness, not hue. Complementary hues at equal value make their shared edge vibrate until the boundary seems to dissolve (Josef Albers, *Interaction of Color*, 1963).
 - **Wrong rule:** contrast comes from hue, never from lightness.
 - **On the page:**
   - Every colour sits at the same mid lightness: red against green, orange against blue, violet against olive, meeting at hard edges that shimmer.
   - The page, the article panel, rules, borders, heading bands, code-block frames, table rows and picture frames are all equal-value fields.
   - No grey, no white, no black, except the text.
-- **Legibility:** at a mid value (about L\* 55), every field passes AA with black text, at about 5.5:1. The text is the one value contrast on the page, so the rule bends exactly once. Links are underlined, since colour can't separate them.
+- **Legibility:** at a mid value (built at L\* 58), every field passes AA with black text, at about 6.2:1. The text is the one value contrast on the page, so the rule bends exactly once. Links are underlined, since colour can't separate them.
 - **Watch for:** pattern glare. Large flat fields only, never fine stripes or checks (Arnold Wilkins, *Visual Stress*, 1995; see the RULES.md tier 1 rule). Two costumes sit nearby: 1960s psychedelic posters, which used vibrating complementaries with swirling lettering, and Albers' own nested squares, which are designer-good. Keep everything flat and rectangular, with no lettering effects and no squares within squares.
 - **Escape note:** "Value contrast: edges and text show up through differences in lightness. Every colour here has the same lightness, so the edges between them vibrate (Josef Albers, *Interaction of Color*, 1963)."
 
 ### Pop of Colour (colour)
+*Picked, as Breathing Room's colour principle.*
 - **Principle:** proportion. A strong colour needs a small area to balance a large area of a weak one (Itten's contrast of extension, 1961). Interior design's 60-30-10 rule: 60% a dominant neutral, 30% a secondary colour, 10% an accent. The smell follows it perfectly, with grey everywhere and one accent used sparingly.
 - **Wrong rule:** the loudest colour gets the most room, and emphasis is shown by taking colour away.
 - **On the page:**
@@ -157,6 +176,7 @@ A launch set of four or five, across the three axes, would replace the current f
 - **Escape note:** "Proportion: loud colours belong in small doses and quiet ones in large (Itten; the 60-30-10 rule). Here the loudest colour has the whole page, and everything important is beige."
 
 ### Mixed Signals (colour)
+*Not picked.*
 - **Principle:** colour carries meaning by convention. Red means stop or error, yellow caution, green go or safe, and blue information or a link (ISO 3864 safety colours; the web's blue link).
 - **Wrong rule:** choose colours for how they look, never for what they say.
 - **On the page:** every element gets a signal colour it hasn't earned. The article is on safe green, headings in stop red, dates in caution amber, quotes in information blue, links any colour but blue, and the 404 page a reassuring green.
@@ -165,27 +185,24 @@ A launch set of four or five, across the three axes, would replace the current f
 - **Escape note:** "Colour carries meaning: red for stop, green for go. Every colour here was chosen for its looks, so the page keeps saying things it doesn't mean."
 
 ### The Focus Group (keep)
-Already principle-first. Its wrong rule is "do whatever research says people like least", and it starts from studies, not an interface. Nothing in it can be named as an imitation, and it belongs to no era. Its first draft drifted toward a stylish, earthy zine (designer-bad) and was made clunkier; see its journal. Proposed: keep, subject to the owner's review.
+*Kept.* Already principle-first. Its wrong rule is "do whatever research says people like least", and it starts from studies, not an interface. Nothing in it can be named as an imitation, and it belongs to no era. Its first draft drifted toward a stylish, earthy zine (designer-bad) and was made clunkier; see its journal. Kept, subject to the owner's review.
 
 ### Combining
 Some candidates are stronger together, as one theme with a principle on each of two axes:
-- **Breathing Room + Pop of Colour:** both overdo a virtue of the smell (white space, a sparing accent). Empty screens of a loud colour, with tiny greige emphasis.
+- **Breathing Room + Pop of Colour:** both overdo a virtue of the smell (white space, a sparing accent). Empty screens of a loud colour, with tiny greige emphasis. *Built.*
 - **Fully Justified + Vibrant:** stretched, spaced-out text on shimmering fields.
 - **The Small Print + Mixed Signals:** the least important things are the biggest and in alarm colours.
 
-## Built themes
+## Retired
 
-All five are built and live. Under D23 they're judged by the costume test; under D24 the costumes leave the rotation once replacements ship. Each journal has the full brief and log.
+The first launch set's costumes, retired in phase 3 (D24a). Their code is in git history, before the phase 3 commit; their journals stay, as part of the experiment's record.
 
 | Theme | Failure of taste | Verdict (October 2026) |
 |---|---|---|
-| [Under Construction](themes/under-construction.md) | Amateur more-is-more, recreating GeoCities | Costume. Irony has made it fun to look at. Retires. |
-| [Sidebar Hell](themes/sidebar-hell.md) | Widget maximalism, recreating 2006 blogs | Costume, and a period-test failure: the owner's miss. Retires. |
-| [Office Suite](themes/office-suite.md) | Desktop publishing with every button, recreating PowerPoint 2003 | Costume. Retires. |
-| [Haute](themes/haute.md) | Pretension mistaken for elegance, recreating luxury fashion sites | Costume around a real mechanism (too much space). Rework as Breathing Room, keep, or retire: the owner's call. |
-| [The Focus Group](themes/the-focus-group.md) | Design by survey, from research | Passes the costume test. Keep, subject to review. |
-
-The Focus Group's sources and its rule against in-page citations (D14a) are in its journal and `theme.yaml`.
+| [Under Construction](themes/under-construction.md) | Amateur more-is-more, recreating GeoCities | Costume. Irony has made it fun to look at. |
+| [Sidebar Hell](themes/sidebar-hell.md) | Widget maximalism, recreating 2006 blogs | Costume, and a period-test failure: the owner's miss. |
+| [Office Suite](themes/office-suite.md) | Desktop publishing with every button, recreating PowerPoint 2003 | Costume. |
+| [Haute](themes/haute.md) | Pretension mistaken for elegance, recreating luxury fashion sites | Costume around a real mechanism, too much white space, which Breathing Room took on from scratch. |
 
 ## More principles
 

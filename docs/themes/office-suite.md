@@ -1,6 +1,6 @@
 # Office Suite: design journal
 
-*Status: built in phase 2 and live. **A costume** (D23): it recreates PowerPoint 2003. It leaves the rotation when the principle-first set ships (D24).*
+*Status: **retired** in phase 3 (D24a). A costume (D23): it recreated PowerPoint 2003. Its code is in git history.*
 
 ## Brief
 

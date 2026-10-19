@@ -1,6 +1,6 @@
 # Sidebar Hell: design journal
 
-*Status: built in phase 1 and live. **The owner judged it a miss** (see the log): it reads as an ordinary blog of its era, not as bad taste. **A costume** (D23); it leaves the rotation when the principle-first set ships (D24).*
+*Status: **retired** in phase 3 (D24a). The owner judged it a miss (see the log): it read as an ordinary blog of its era, not as bad taste. A costume (D23). Its code is in git history.*
 
 ## Brief
 

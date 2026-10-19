@@ -1,0 +1,15 @@
+id: keep-your-distance
+name: Keep Your Distance
+front_door: true
+legible: true
+motion: false
+axes: [structure, colour, type]
+sources:
+  - "Max Wertheimer (1923), Untersuchungen zur Lehre von der Gestalt II: the laws of grouping"
+  - "Stephen Palmer (1992), Common region: a new principle of perceptual grouping, Cognitive Psychology"
+rules_broken:
+  - "Proximity: things near each other look like they belong together (Max Wertheimer, 1923). Here, the closer two things are related, the further apart they sit, so every heading is glued to the section before it and half a screen away from its own."
+  - "Similarity: things that look alike look like they belong together (Wertheimer again). Every heading wears the colours and typeface of the section before it, and every caption dresses like the paragraph after it."
+  - "Common region: things inside one boundary look like a group (Stephen Palmer, 1992). The colour bands start and stop in the wrong places."
+  - "Lines of a paragraph sit further apart than paragraphs do, list markers wander off from their items, and underlines drift down toward the next line."
+smell_exemptions: []

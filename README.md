@@ -4,7 +4,7 @@
 
 Built with Hugo, hosted on Netlify. Start with [AGENTS.md](AGENTS.md) and [docs/INTENT.md](docs/INTENT.md).
 
-*Status: live, with five bad themes. A new set, built from broken design principles rather than recreations, is being chosen (see [docs/THEMES.md](docs/THEMES.md)).*
+*Status: six bad themes, each built from a broken design principle rather than a recreation of something old (see [docs/THEMES.md](docs/THEMES.md)). Waiting on the owner's review before the next deploy.*
 
 ```sh
 npm ci && hugo server   # preview
