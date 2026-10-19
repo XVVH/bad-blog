@@ -53,8 +53,8 @@ October 2026. Four of the five launch themes turned out to be costumes, recreati
 - [x] Haute retires; Breathing Room is built new
 - [x] Retire Under Construction, Sidebar Hell, Office Suite and Haute (their code stays in git history)
 - [x] A new home for the visible hit counter: The Small Print, enormous
-- [ ] The owner reviews the new set in the gallery, including The Focus Group
-- [ ] Ship it: one production deploy, with the hidden live-region fix from the same branch
+- [x] Ship it: one production deploy, with the hidden live-region fix from the same branch (October 2026)
+- [ ] The owner reviews the new set live, including The Focus Group
 
 ## Phase 4 and beyond
 

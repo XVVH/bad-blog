@@ -48,4 +48,4 @@ Run `npm test` before every push. More commands, and how everything fits togethe
 
 ## Status
 
-Phases 0–3 are built and tested. The plumbing and Not Bad (a proposal awaiting the owner) are from phases 0–2. Phase 3 replaced the first five themes, four of which turned out to be costumes, with a principle-first launch set the owner picked (D23, D24a): Keep Your Distance, The Small Print, Variety Pack, Vibrant, Breathing Room and The Focus Group. The live site still runs the first set until the next production deploy. See [`docs/ROADMAP.md`](docs/ROADMAP.md).
+Phases 0–3 are built and tested. The plumbing and Not Bad (a proposal awaiting the owner) are from phases 0–2. Phase 3 replaced the first five themes, four of which turned out to be costumes, with a principle-first launch set the owner picked (D23, D24a): Keep Your Distance, The Small Print, Variety Pack, Vibrant, Breathing Room and The Focus Group. All six are live. See [`docs/ROADMAP.md`](docs/ROADMAP.md).
