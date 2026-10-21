@@ -1,12 +1,16 @@
-# Turrible Takes
+# bad-blog
 
-> **Archived (October 2026).** Turrible Takes is retired. `synchromeshi.com` now serves **The Smokepit** ([XVVH/flip-top](https://github.com/XVVH/flip-top)), a blog whose themes are drawn from cigarette pack designs, built on this repository's plumbing. The journals and decisions here stay as the record of the experiment.
+I ran an experiment to see if Claude could make intentionally bad web designs if instructed to do so. Theory is that LLMs can only pull from their own training corpus, so even with explicit "bad design" rules they wouldn't be able to make a "bad" page.
 
-*(Yes, spelled like that.)* A Markdown blog with deliberately bad design. Every page appears in one of several bad themes, with a **More bad** button to spin to another and a **Less bad** button to escape to a readable one.
+The experiment was a success in that it was a failure - even when provided with hard guardrails on the designs (old != bad), it landed on designs that were just aesthetics of certain eras. I even had it draft a "SMELLS.md" to codify what makes designs smell like they were AI.
 
-Built with Hugo, hosted on Netlify. Start with [AGENTS.md](AGENTS.md) and [docs/INTENT.md](docs/INTENT.md).
+Sometimes a negative result is just as interesting as a positive result. I went multiple rounds with Opus 5.5 and the same thing occurred - "bad" became "old".
 
-*Status: six bad themes, each built from a broken design principle rather than a recreation of something old (see [docs/THEMES.md](docs/THEMES.md)). Live until October 2026, when the site moved to The Smokepit.*
+**Archived October 2026**
+
+---
+
+Run with Hugo:
 
 ```sh
 npm ci && hugo server   # preview
